@@ -665,17 +665,7 @@ const componentMap: Record<string, FC<any>> = {
 - [ ] Click handlers log to console and call optional `onItemClick` callback
 
 ---
-```
 
----
-
-## 📊 Additional Diagram Files
-
-Create these as supplementary documentation:
-
-### **`src/components/README.md`** – Component System Deep Dive
-
-```markdown
 # Component System
 
 ## Architecture
