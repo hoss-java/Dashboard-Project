@@ -1,6 +1,5 @@
----
 
-## 📚 Quick Start Guides (Read in Order)
+# 📚 Quick Start Guides (Read in Order)
 
 1. **[WINDOWS_SETUP.md](./WINDOWS_SETUP.md)** ⚡ — **START HERE** if you're on Windows
    - Node.js installation, Git, IntelliJ IDEA setup
