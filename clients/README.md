@@ -198,7 +198,7 @@ You'll see something like:
 
 ---
 
-### 🏪 Exercise 4: Customize a Single Item
+### 🏪 4: Customize a Single Item
 
 **What you'll do**: Override the global style for just one card.
 

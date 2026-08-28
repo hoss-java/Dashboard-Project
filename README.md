@@ -328,7 +328,7 @@ npm start -- --port 3001
 - Read the main **[README.md](./README.md)** for architecture overview
 - Check **[src/config/README.md](./src/config/README.md)** to understand JSON data files
 - Explore **[src/components/README.md](./src/components/README.md)** for component tutorials
-- Start with the "Quick Start - Let's Play with Code" exercises in the main README
+- Start with the "Quick Start - Let's Play with Code" stepss in the main README
 
 ---
 
