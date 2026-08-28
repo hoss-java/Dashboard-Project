@@ -1,4 +1,4 @@
-![Logo](clients/muix/public/logo192.png)
+![Logo](clients/public/logo192.png)
 
 # React app generic-material ui dashboard
 
