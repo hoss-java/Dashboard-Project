@@ -691,13 +691,7 @@ ItemRenderer.tsx (Router)
 ```
 
 See `src/components/utils/resolveValue.ts` for implementation.
-```
 
----
-
-### **`src/config/README.md`** – Configuration Guide
-
-```markdown
 # Configuration Files
 
 ## dashboardItems.json
@@ -725,7 +719,6 @@ See `src/components/utils/resolveValue.ts` for implementation.
 - `showBorder`, `borderColor`, `backgroundColor`
 
 **Example**: See `src/config/defaultStyle.json`
-```
 
 ---
 
