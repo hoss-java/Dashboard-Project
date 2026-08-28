@@ -30,7 +30,7 @@ This section shows you how to modify the app without touching complex code. You'
 ```json
 {
   "short_name": "Dashboard App",
-  "name": "🎓 My Learning Dashboard",
+  "name": "🎓 My test Dashboard",
   ...
 }
 ```
@@ -240,11 +240,11 @@ You'll see something like:
 
 ---
 
-### 💡 What You Just Learned
+### 💡 What You Just did
 
 By playing with these JSON files, you've discovered:
 
-| What You Did | What You Learned |
+| What You Did | What You Did |
 |---|---|
 | Changed `manifest.json` | The app reads external configuration files |
 | Added a card in JSON | You can control the UI structure without touching React |
@@ -267,17 +267,7 @@ Ready to go deeper? Continue reading below... 👇
 
 ## 🎯 Overview
 
-This is a **learning-friendly React application** that demonstrates how to build a **dynamic, registry-based component rendering system**. Instead of hardcoding components, this system loads components from a registry and renders them based on configuration files.
-
-### Core Concept
-
-```
-JSON Data → Registry Lookup → Component Render → UI Display
-```
-
-## 🎯 Overview
-
-This is a **learning-friendly React application** that demonstrates how to build a **dynamic, registry-based component rendering system**. Instead of hardcoding components, this system loads components from a registry and renders them based on configuration files.
+This is a **friendly React application** that demonstrates how to build a **dynamic, registry-based component rendering system**. Instead of hardcoding components, this system loads components from a registry and renders them based on configuration files.
 
 ### Core Concept
 
@@ -636,7 +626,7 @@ const componentMap: Record<string, FC<any>> = {
 | Principle | Benefit |
 |-----------|---------|
 | **Registry Pattern** | Components are discovered dynamically; easy to add new ones without changing core logic |
-| **JSON-Driven** | UI structure lives in data, not code; perfect for learning how data shapes UI |
+| **JSON-Driven** | UI structure lives in data, not code; perfect for knowing how data shapes UI |
 | **Value Resolution** | Item property → defaultStyle → hardcoded default; predictable fallback chain |
 | **Type Safety** | Centralized types in `src/components/types.ts` prevent runtime errors |
 | **Component Isolation** | Each component (Text, Box, Card) is independent; easy to understand and modify |

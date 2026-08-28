@@ -4,7 +4,7 @@
 
 In this tutorial, you'll **copy the TextComponent, rename it, and create a brand new "Label" component**.
 
-This is the fastest way to learn because you're not starting from zero — you're extending something that already works.
+This is the fastest way to get hands on because you're not starting from zero — you're extending something that already works.
 
 ---
 

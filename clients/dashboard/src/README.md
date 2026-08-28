@@ -21,7 +21,7 @@ Welcome to the `src/` folder! Here's what you'll find and where to go for help.
 1. **[../GITHUB_KANBAN_GUIDE.md](../GITHUB_KANBAN_GUIDE.md)** — Track your work
 2. **[config/README.md](./config/README.md)** — Understand the data flow
 3. **[components/README.md](./components/README.md)** — Build your first component
-4. **[contexts/DashboardContext.tsx](./contexts/DashboardContext.tsx)** — Learn global state
+4. **[contexts/DashboardContext.tsx](./contexts/DashboardContext.tsx)** — work with global state
 
 ---
 

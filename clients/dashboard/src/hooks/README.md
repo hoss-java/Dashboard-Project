@@ -54,7 +54,7 @@ In your `public/` folder, create a manifest file:
 {
   "name": "My Dashboard App",
   "short_name": "Dashboard",
-  "description": "A learning template for building dynamic dashboards",
+  "description": "A test template for building dynamic dashboards",
   "theme_color": "#1976d2",
   "background_color": "#ffffff",
   "icons": []
@@ -212,7 +212,7 @@ const manifest = useManifest();
 |----------|------|----------|---------|
 | `name` | string | Yes | `"My Dashboard App"` |
 | `short_name` | string | No | `"Dashboard"` |
-| `description` | string | No | `"A learning template..."` |
+| `description` | string | No | `"A test template..."` |
 | `[key: string]` | any | No | Custom properties |
 
 ---
@@ -270,7 +270,7 @@ Full PWA manifest (optional):
 {
   "name": "My Dashboard App",
   "short_name": "Dashboard",
-  "description": "A learning template for dynamic dashboards",
+  "description": "A test template for dynamic dashboards",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
