@@ -692,34 +692,6 @@ ItemRenderer.tsx (Router)
 
 See `src/components/utils/resolveValue.ts` for implementation.
 
-# Configuration Files
-
-## dashboardItems.json
-
-**Purpose**: Defines the tree of items to render
-
-**Structure**:
-- Array of `Item` objects
-- Each item has `id`, `type`, and optional custom properties
-- Nested items via `items` array (Box and Card support this)
-
-**Example**: See `src/config/dashboardItems.json`
-
----
-
-## defaultStyle.json
-
-**Purpose**: Global fallback styles for all items
-
-**Applied**: When item doesn't specify a property, `defaultStyle` is used
-
-**Properties**:
-- `padding`, `gap`, `align`
-- `fontSize`, `fontWeight`
-- `showBorder`, `borderColor`, `backgroundColor`
-
-**Example**: See `src/config/defaultStyle.json`
-
 ---
 
 ## 🛠️ Ready to Create Your Own Component
