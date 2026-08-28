@@ -1,0 +1,9 @@
+# Variable Definitions
+${java_test_path}=muix/src/test
+${js_test_path}=clients/webclientv1/tests
+${ts_test_path}=clients/muix/src
+
+# Test Directories
+#java:${java_test_path}
+#js:${js_test_path}
+ts:${ts_test_path}

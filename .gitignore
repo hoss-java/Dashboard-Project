@@ -36,5 +36,7 @@ target/
 test.sh
 .DS_Store
 pm_report.json
+container-run
 .container-run
+.container-run.sample
 init-deck.sh
