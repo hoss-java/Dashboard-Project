@@ -1,0 +1,96 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "type": "text",
+      "content": "Main Title",
+      "fontSize": "large",
+      "fontWeight": "bold",
+      "align": "center",
+      "padding": 2
+    },
+    {
+      "id": "2",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "2.1",
+          "type": "card",
+          "title": "Card One",
+          "footer": "Footer for card one",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.1.1",
+              "type": "text",
+              "content": "This is content inside card one",
+              "fontSize": "medium"
+            },
+            {
+              "id": "2.1.2",
+              "type": "text",
+              "content": "More content in the first card",
+              "fontSize": "small"
+            }
+          ]
+        },
+        {
+          "id": "2.2",
+          "type": "card",
+          "title": "Card Two",
+          "footer": "Footer for card two",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.2.1",
+              "type": "text",
+              "content": "This is content inside card two",
+              "fontSize": "medium"
+            },
+            {
+              "id": "2.2.2",
+              "type": "text",
+              "content": "More content in the second card",
+              "fontSize": "small"
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "type": "card",
+          "title": "Card Three",
+          "footer": "Footer for card three",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.3.1",
+              "type": "text",
+              "content": "This is content inside card three",
+              "fontSize": "medium"
+            },
+            {
+              "id": "2.3.2",
+              "type": "text",
+              "content": "More content in the third card",
+              "fontSize": "small"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "text",
+      "content": "Footer content",
+      "fontSize": "small",
+      "padding": 2,
+      "align": "center"
+    }
+  ]
+}

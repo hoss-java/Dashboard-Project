@@ -1,9 +1,9 @@
 // src/pages/HomePage.tsx
 import React from 'react';
-import WelcomeScreen from '../components/WelcomeScreen';
+import DashboardPanel from '../components/DashboardPanel';
 
 function HomePage() {
-  return <WelcomeScreen />;
+  return <DashboardPanel />;
 }
 
 export default HomePage;

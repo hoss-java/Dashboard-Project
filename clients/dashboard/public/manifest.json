@@ -1,6 +1,6 @@
 {
-  "short_name": "React App template",
-  "name": "React app generic-material-ui template",
+  "short_name": "React App Dashboard",
+  "name": "React app generic-material-ui dashboard",
   "icons": [
     {
       "src": "favicon.ico",

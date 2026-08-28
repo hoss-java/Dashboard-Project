@@ -1,0 +1,25 @@
+{
+  "components": [
+    {
+      "type": "text",
+      "displayName": "Text Component",
+      "description": "Displays text with typography styling",
+      "path": "Text",
+      "fileName": "TextComponent"
+    },
+    {
+      "type": "box",
+      "displayName": "Box Component",
+      "description": "A container that accepts nested items",
+      "path": "Box",
+      "fileName": "BoxComponent"
+    },
+    {
+      "type": "card",
+      "displayName": "Card Component",
+      "description": "A Material UI card with optional title, footer, and nested items",
+      "path": "Card",
+      "fileName": "CardComponent"
+    }
+  ]
+}

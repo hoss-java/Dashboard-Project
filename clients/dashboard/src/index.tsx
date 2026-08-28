@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TemplateProvider } from './contexts/TemplateContext';
+import { DashboardProvider } from './contexts/DashboardContext';
 import App from './App';
 import './index.css';
 
@@ -10,8 +10,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <TemplateProvider>
+    <DashboardProvider>
       <App />
-    </TemplateProvider>
+    </DashboardProvider>
   </React.StrictMode>
 );
