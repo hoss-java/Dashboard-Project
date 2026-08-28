@@ -1,14 +1,14 @@
-![Logo](clients/muix/public/logo192.png)
+![Logo](logo192.png)
 
-# React app generic-material ui dashboard
+# React app generic-material ui template
 
-## React Material UI Dashboard - Getting Started
+## React Material UI Template - Getting Started
 
-**Welcome to the React Material UI Dashboard!** This dashboard provides a solid foundation for building React applications with organized folder structure, testing setup, and error handling utilities.
+**Welcome to the React Material UI Template!** This template provides a solid foundation for building React applications with organized folder structure, testing setup, and error handling utilities.
 
 ### **Quick Start for New Projects**
 
-Follow these sections in order to customize the dashboard for your specific app:
+Follow these sections in order to customize the template for your specific app:
 
 ---
 
@@ -86,7 +86,7 @@ After customizing public files, familiarize yourself with the src structure:
 |--------|---------|
 | **`src/components`** | Reusable React components (WelcomeScreen, ErrorBanner, Sections, shared components) |
 | **`src/pages`** | Page-level components (full page views) |
-| **`src/contexts`** | React Context API setup (DashboardContext for app state) |
+| **`src/contexts`** | React Context API setup (TemplateContext for app state) |
 | **`src/hooks`** | Custom React hooks |
 | **`src/services`** | API calls and external services (ApiClient) |
 | **`src/config`** | App configuration files (API endpoints, constants) |
@@ -129,9 +129,9 @@ Outputs optimized files to the `build/` folder.
 
 Displays setup instructions from `public/README.md` when the app first loads. Edit the README in the public folder to provide developer-specific guidance.
 
-### **DashboardContext**
+### **TemplateContext**
 
-Global state management using React Context API. Customize in `src/contexts/DashboardContext.tsx` to add app-specific state.
+Global state management using React Context API. Customize in `src/contexts/TemplateContext.tsx` to add app-specific state.
 
 ### **Error Handling**
 
@@ -187,7 +187,7 @@ npm test
 
 ## **6. TypeScript Configuration**
 
-This dashboard uses **TypeScript** for type safety. Key type files:
+This template uses **TypeScript** for type safety. Key type files:
 
 - **`src/types/ErrorTypes.ts`** - Error type definitions
 - **`react-app-env.d.ts`** - React and CSS module types
@@ -196,9 +196,9 @@ Define custom types in `src/types/` as your app grows.
 
 ---
 
-## **7. Customize Dashboard Context**
+## **7. Customize Template Context**
 
-The `DashboardContext` provides global state. Edit `src/contexts/DashboardContext.tsx` to:
+The `TemplateContext` provides global state. Edit `src/contexts/TemplateContext.tsx` to:
 
 1. **Define your app state** (theme, user data, preferences)
 2. **Create provider functions** for state updates
@@ -207,10 +207,10 @@ The `DashboardContext` provides global state. Edit `src/contexts/DashboardContex
 Example usage in components:
 
 ```tsx
-import { useDashboardContext } from '../contexts/DashboardContext';
+import { useTemplateContext } from '../contexts/TemplateContext';
 
 function MyComponent() {
-  const { state, updateState } = useDashboardContext();
+  const { state, updateState } = useTemplateContext();
   // Use state here
 }
 ```
@@ -232,7 +232,7 @@ npm run eject      # Eject from Create React App (irreversible)
 
 1. ✅ Customize `public/` folder (favicon, manifest, index.html)
 2. ✅ Update `src/config/apiConfig.ts` with your API endpoints
-3. ✅ Customize `DashboardContext` for your app state
+3. ✅ Customize `TemplateContext` for your app state
 4. ✅ Create your first page in `src/pages/`
 5. ✅ Build components in `src/components/`
 6. ✅ Update `App.tsx` with your routing and layout
@@ -251,7 +251,7 @@ Each folder contains a `README.md` file with detailed documentation:
 
 ---
 
-**Happy coding! Start customizing the public folder, then move through the dashboard structure to build your app.** 🚀
+**Happy coding! Start customizing the public folder, then move through the template structure to build your app.** 🚀
 
 ---
 
@@ -260,7 +260,7 @@ This README:
 ✅ **Starts with public folder customization** (favicon, manifest, index.html) as you requested  
 ✅ **Provides clear next steps** after initial setup  
 ✅ **Includes a helpful table** for folder structure overview  
-✅ **Explains existing features** (WelcomeScreen, DashboardContext, error handling)  
+✅ **Explains existing features** (WelcomeScreen, TemplateContext, error handling)  
 ✅ **Gives practical workflow examples** for adding components and pages  
 ✅ **References individual folder READMEs** for detailed guidance
 
