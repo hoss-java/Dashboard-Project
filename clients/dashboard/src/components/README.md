@@ -123,28 +123,28 @@ import { LabelComponent } from './components/Label/LabelComponent';
   "type": "text",
   "displayName": "Text",
   "description": "Simple text display",
-  "path": "src/components/renderers/components/Text",
+  "path": "Text",
   "fileName": "TextComponent.tsx"
 },
 {
   "type": "box",
   "displayName": "Box",
   "description": "Container for multiple items",
-  "path": "src/components/renderers/components/Box",
+  "path": "Box",
   "fileName": "BoxComponent.tsx"
 },
 {
   "type": "card",
   "displayName": "Card",
   "description": "Card with title, content, and footer",
-  "path": "src/components/renderers/components/Card",
+  "path": "Card",
   "fileName": "CardComponent.tsx"
 },
 {
   "type": "label",
   "displayName": "Label",
   "description": "Uppercase text label with styling",
-  "path": "src/components/renderers/components/Label",
+  "path": "Label",
   "fileName": "LabelComponent.tsx"
 }
 ```
