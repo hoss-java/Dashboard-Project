@@ -41,16 +41,6 @@ A **visual way** to track your work. Cards move from left → right as you progr
 
 ---
 
-## **What is the Kanban Board?**
-
-A **visual way** to track your work. Cards move from left → right as you progress.
-
-```
-[Backlog] → [Ready] → [In Progress] → [In Review] → [Done]
-```
-
----
-
 ## **How to Create a Card**
 
 1. Go to your **GitHub repo** → **Projects** tab
