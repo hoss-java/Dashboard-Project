@@ -318,7 +318,7 @@ Once you're comfortable with this pattern, you can create:
 
 And then is time to start with components needed for this Dashboard project
 - **NumericDisplay Component** (NumericDisplay component that shows sensor values with units and color-coded status indicators.)
-  -  Step 1: [NumericDisplay component - Task description on the board](https://github.com/hoss-java/Dashboard-Project/issues/2), Difficulty: ⭐⭐ Medium
+  - Step 1: [NumericDisplay component - Task description on the board](https://github.com/hoss-java/Dashboard-Project/issues/2), Difficulty: ⭐⭐ Medium
     - Step 2: [Update NumericDisplay to Listen for Live Data Changes](https://github.com/hoss-java/Dashboard-Project/issues/7) , Difficulty: ⭐⭐ Medium
 
 - **BinarySwitch Component** (BinarySwitch component for toggle functionality with ON/OFF states.)
