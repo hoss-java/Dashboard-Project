@@ -10,7 +10,7 @@
 3. **[Quick Start - Let's Play with Code](./clients/README.md)** 🎮 — **Code exercises** (in this README)
    - 4 hands-on simple steps to know more the system
 
-4. **[src/config/README.md](./src/config/README.md)** ⚙️ — Config files explained
+4. **[clients/dashboardsrc/config/README.md](./clients/dashboard/src/config/README.md)** ⚙️ — Config files explained
    - `dashboardItems.json`, `defaultStyle.json`, `componentRegistry.json`
 
 5. **[clients/dashboard/src/components/README.md](./clients/dashboard/src/components/README.md)** 🏗️ — Build your first component
