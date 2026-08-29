@@ -698,7 +698,7 @@ See `src/components/utils/resolveValue.ts` for implementation.
 
 Once you're comfortable with the basics above, you're ready to build your own custom renderer!
 
-**Read the detailed guide**: [`src/components/README.md`](./dashboard/src/components/README.md)
+**Read the detailed guide**: [`dashboard/src/components/README.md`](./dashboard/src/components/README.md)
 
 That guide walks you through:
 - How the component registry works
