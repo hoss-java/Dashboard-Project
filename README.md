@@ -13,7 +13,7 @@
 4. **[src/config/README.md](./src/config/README.md)** ⚙️ — Config files explained
    - `dashboardItems.json`, `defaultStyle.json`, `componentRegistry.json`
 
-5. **[src/components/README.md](./src/components/README.md)** 🏗️ — Build your first component
+5. **[clients/dashboard/src/components/README.md](./clients/dashboard/src/components/README.md)** 🏗️ — Build your first component
    - Step-by-step Label component tutorial
 
 6. **[WINDOWS_EMERGENCY_SETUP.md](./WINDOWS_EMERGENCY_SETUP.md)** 🆘 — **Only if stuck**
