@@ -18,3 +18,16 @@
 
 6. **[WINDOWS_EMERGENCY_SETUP.md](./WINDOWS_EMERGENCY_SETUP.md)** 🆘 — **Only if stuck**
    - Nuclear option: start fresh & copy files
+
+
+**Once you're comfortable with this pattern, you can start with tasks related to the dashboard project:**
+
+- **NumericDisplay Component** (NumericDisplay component that shows sensor values with units and color-coded status indicators.)
+  -  Step 1: https://github.com/hoss-java/Dashboard-Project/issues/2 (Task description on the board), Difficulty: ⭐⭐ Medium
+    - Step 2: https://github.com/hoss-java/Dashboard-Project/issues/7 , Difficulty: ⭐⭐ Medium
+- **BinarySwitch Component** (BinarySwitch component for toggle functionality with ON/OFF states.)
+  - Step 1: https://github.com/hoss-java/Dashboard-Project/issues/3 (Task description on the board), Difficulty: ⭐⭐ Medium
+    - Step 2: https://github.com/hoss-java/Dashboard-Project/issues/8, Difficulty: ⭐⭐ Medium
+- **HistoryDiagram Component** (HistoryDiagram component that displays historical data as a line chart with axes and grid lines.)
+  - Step 1: https://github.com/hoss-java/Dashboard-Project/issues/4 (Task description on the board), Difficulty: ⭐⭐⭐ Hard
+    - Step 2: https://github.com/hoss-java/Dashboard-Project/issues/9,  Difficulty: ⭐⭐ Medium

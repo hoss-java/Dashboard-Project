@@ -309,11 +309,23 @@ const fontSize = variant === 'large' ? baseFontSize * 1.5 :
 ## 🚀 Ready for More?
 
 Once you're comfortable with this pattern, you can create:
-- **Button Component** (add `onClick` handling)
-- **Image Component** (display images from URLs)
-- **List Component** (render arrays of items)
-- **Badge Component** (small notification badges)
+- **Button Component** (add `onClick` handling)  Difficulty: ⭐ Easy
+- **Icon Button Component** (add `onClick` handling) Difficulty: ⭐ Easy
+- **Image Component** (display images from URLs) Difficulty: Difficulty: ⭐⭐ Medium
+- **List Component** (render arrays of items) Difficulty: ⭐⭐ Medium
+- **Badge Component** (small notification badges) Difficulty: ⭐⭐ Medium
 - Any custom component you can imagine!
+
+And then is time to start with components needed for this Dashboard project
+- **NumericDisplay Component** (NumericDisplay component that shows sensor values with units and color-coded status indicators.)
+  -  Step 1: https://github.com/hoss-java/Dashboard-Project/issues/2 (Task description on the board), Difficulty: ⭐⭐ Medium
+    - Step 2: https://github.com/hoss-java/Dashboard-Project/issues/7 , Difficulty: ⭐⭐ Medium
+- **BinarySwitch Component** (BinarySwitch component for toggle functionality with ON/OFF states.)
+  - Step 1: https://github.com/hoss-java/Dashboard-Project/issues/3 (Task description on the board), Difficulty: ⭐⭐ Medium
+    - Step 2: https://github.com/hoss-java/Dashboard-Project/issues/8, Difficulty: ⭐⭐ Medium
+- **HistoryDiagram Component** (HistoryDiagram component that displays historical data as a line chart with axes and grid lines.)
+  - Step 1: https://github.com/hoss-java/Dashboard-Project/issues/4 (Task description on the board), Difficulty: ⭐⭐⭐ Hard
+    - Step 2: https://github.com/hoss-java/Dashboard-Project/issues/9,  Difficulty: ⭐⭐ Medium
 
 The process is always the same:
 1. Add type to `types.ts`
