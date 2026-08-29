@@ -100,7 +100,7 @@ node --version
 npm --version
 ```
 
-**NOTE**
+**⚠️ NOTE ⚠️**
 - The curent `package.json` and `package-lock.json` are based on **node v20.15.1** and **npm 10.9.1**, if you use different version copy content of `package.json` to an AI tool and say this file is based on based on **node v20.15.1** and **npm 10.9.1** and I need them to use with **VERSION THAT YOU HAVE**, and get an updated for them based on you node and npm versions.
 
 Ask your team lead for their exact versions. If yours differ:
