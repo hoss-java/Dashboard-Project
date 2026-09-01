@@ -2,7 +2,7 @@
 import TextComponent from './Text/TextComponent';
 import BoxComponent from './Box/BoxComponent';
 import CardComponent from './Card/CardComponent';
-import HistoryDiagramComponent from './components/HistoryDiagram/HistoryDiagramComponent';
+import HistoryDiagram from './components/HistoryDiagram/HistoryDiagram';
 import componentRegistryConfig from '../config/componentRegistry.json';
 import type { FC } from 'react';
 
@@ -26,7 +26,7 @@ class ComponentRegistry {
       text: TextComponent,
       box: BoxComponent,
       card: CardComponent,
-      historyDiagram: HistoryDiagramComponent,
+      historyDiagram: HistoryDiagram,
     };
 
     componentRegistryConfig.components.forEach((config) => {

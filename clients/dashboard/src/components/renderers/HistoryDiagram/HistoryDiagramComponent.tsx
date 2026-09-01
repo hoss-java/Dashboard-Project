@@ -1,4 +1,4 @@
-// src/components/renderers/components/HistoryDiagram/HistoryDiagramComponent.tsx
+// src/components/renderers/components/HistoryDiagram/HistoryDiagram.tsx
 import React, { useRef, useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { dataRegistry } from '../../../services/DataRegistry';
@@ -6,7 +6,7 @@ import { resolveValue } from '../../utils/resolveValue';
 import type { ItemRendererProps } from '../../types';
 
 /**
- * HistoryDiagramComponent - renders a line chart from historical data
+ * HistoryDiagram - renders a line chart from historical data
  * Follows standard pattern: accepts item from JSON config, resolves values
  */
 export const HistoryDiagramComponent: React.FC<ItemRendererProps> = ({
@@ -29,7 +29,7 @@ export const HistoryDiagramComponent: React.FC<ItemRendererProps> = ({
   // Subscribe to data changes and fetch history
   useEffect(() => {
     if (!dataName) {
-      console.warn('[HistoryDiagramComponent] No data name provided in item.content');
+      console.warn('[HistoryDiagram] No data name provided in item.content');
       return;
     }
 
@@ -216,7 +216,7 @@ export const HistoryDiagramComponent: React.FC<ItemRendererProps> = ({
   }, [historyData, width, height, minValue, maxValue, lineColor, label]);
 
   const onItemClickHandler = () => {
-    console.info('[HistoryDiagramComponent] Chart clicked:', item.id);
+    console.info('[HistoryDiagram] Chart clicked:', item.id);
     if (onItemClick) onItemClick(item.id, item);
   };
 
