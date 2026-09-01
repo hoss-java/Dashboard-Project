@@ -1,13 +1,9 @@
 // src/components/renderers/ItemRenderer.tsx
 import { componentRegistry } from './ComponentRegistry';
-import type { 
-  ItemRendererProps,
-  Item
-} from '../types';
+import type { ItemRendererProps } from '../types';
 
 export const ItemRenderer: React.FC<ItemRendererProps> = ({
   item,
-
   onItemClick,
 }) => {
 
@@ -24,7 +20,7 @@ export const ItemRenderer: React.FC<ItemRendererProps> = ({
   const Component = config.component;
   return (
     <Component 
-      item={item} 
+      item={item}
       onItemClick={onItemClick} 
     />
   );

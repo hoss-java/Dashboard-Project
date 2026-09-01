@@ -20,6 +20,35 @@
       "description": "A Material UI card with optional title, footer, and nested items",
       "path": "Card",
       "fileName": "CardComponent"
+    },
+    {
+      "type": "binarySwitch",
+      "displayName": "Binary Switch",
+      "description": "Binary ON/OFF toggle switch",
+      "path": "Binary Switch",
+      "fileName": "BinarySwitch",
+      "props": {
+        "isOn": {
+          "type": "boolean",
+          "required": true
+        },
+        "label": {
+          "type": "string",
+          "required": true
+        },
+        "onLabel": {
+          "type": "string",
+          "required": true
+        },
+        "offLabel": {
+          "type": "string",
+          "required": true
+        },
+        "size": {
+          "type": "string",
+          "required": false
+        }
+      }
     }
   ]
 }

@@ -1,15 +1,10 @@
 // src/components/DashboardPanel.tsx
 import React, { useState, useEffect } from 'react';
 import { Box, AppBar, Toolbar, Typography } from '@mui/material';
-
 import useManifest from '../hooks/useManifest';
-import type { 
-  DefaultStyle,
-  Item,
-} from './types';
+import type { Item } from './types';
 import ItemRenderer from './renderers/ItemRenderer';
 import dashboardItems from '../config/dashboardItems.json';
-import defaultStyle from '../config/defaultStyle.json';
 
 interface DashboardPanelProps {
   onClose?: () => void;
@@ -19,26 +14,6 @@ function DashboardPanel({ onClose }: DashboardPanelProps) {
   const manifest = useManifest();
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
-
-  // ============ SX Helpers ============
-  const getContentWrapperSx = () => ({
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    bgcolor: '#f5f5f5',
-    p: 2,
-    overflowY: 'auto',
-  });
-
-  const getContentBoxSx = () => ({
-    bgcolor: 'white',
-    p: 4,
-    borderRadius: 1,
-    boxShadow: 1,
-    maxWidth: 800,
-    width: '100%',
-  });
 
   // ============ Component Helpers ============
   const renderAppBar = () => (
@@ -67,8 +42,8 @@ function DashboardPanel({ onClose }: DashboardPanelProps) {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {renderAppBar()}
 
-      <Box sx={getContentWrapperSx()}>
-        <Box sx={getContentBoxSx()}>
+
+
           {loading ? (
             <Typography color="textSecondary">Loading...</Typography>
           ) : (
@@ -76,14 +51,13 @@ function DashboardPanel({ onClose }: DashboardPanelProps) {
               <ItemRenderer
                 key={item.id}
                 item={item}
-                defaultStyle={defaultStyle as DefaultStyle}
                 onItemClick={handleItemClick}
               />
             ))
           )}
         </Box>
-      </Box>
-    </Box>
+
+
   );
 }
 
