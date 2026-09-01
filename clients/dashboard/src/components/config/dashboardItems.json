@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "id": "history-chart-1",
+      "type": "historyDiagram",
+      "x": 0,
+      "y": 0,
+      "w": 12,
+      "h": 6,
+      "props": {
+        "label": "Temperature Over Time",
+        "data": [
+          { "timestamp": 1000, "value": 20.5 },
+          { "timestamp": 2000, "value": 21.2 },
+          { "timestamp": 3000, "value": 22.1 },
+          { "timestamp": 4000, "value": 21.8 },
+          { "timestamp": 5000, "value": 23.5 },
+          { "timestamp": 6000, "value": 24.2 },
+          { "timestamp": 7000, "value": 23.9 },
+          { "timestamp": 8000, "value": 25.1 },
+          { "timestamp": 9000, "value": 24.6 },
+          { "timestamp": 10000, "value": 26.3 },
+          { "timestamp": 11000, "value": 25.8 }
+        ],
+        "width": 800,
+        "height": 400,
+        "minValue": 20,
+        "maxValue": 27,
+        "lineColor": "#2196F3"
+      }
+    }
+  ]
+}

@@ -20,6 +20,11 @@
       "description": "A Material UI card with optional title, footer, and nested items",
       "path": "Card",
       "fileName": "CardComponent"
+    },
+    {
+      "name": "historyDiagram",
+      "displayName": "History Diagram",
+      "icon": "ShowChart"
     }
   ]
 }
