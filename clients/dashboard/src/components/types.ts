@@ -20,6 +20,13 @@ export interface Item {
   disabled?: boolean;
   [key: string]: any;
 }
+export type BinarySwitchItem = Item & {
+  isOn: boolean;
+  label: string;
+  onLabel: string;
+  offLabel: string;
+  size?: 'small' | 'medium';
+};
 
 export interface BinarySwitch {
     isOn: boolean;

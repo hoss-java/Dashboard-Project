@@ -1,17 +1,13 @@
 import React from 'react';
 import { Box, Switch, Typography } from '@mui/material';
 
-import type { Item, ItemRendererProps } from '../../types';
+import type { Item, BinarySwitchItem, ItemRendererProps } from '../../types';
 
-type BinarySwitchItem = Item & {
-  isOn: boolean;
-  label: string;
-  onLabel: string;
-  offLabel: string;
-  size?: 'small' | 'medium';
-};
 
-function BinarySwitch({ item, onItemClick }: ItemRendererProps) {
+export const BinarySwitch: React.FC<ItemRendererProps> = ({
+  item,
+  onItemClick,
+}) => {
   const binarySwitchItem = item as BinarySwitchItem;
   const [isOn, setIsOn] = React.useState(Boolean(binarySwitchItem.isOn));
 
@@ -61,6 +57,7 @@ function BinarySwitch({ item, onItemClick }: ItemRendererProps) {
       />
     </Box>
   );
-}
+};
 
 export default BinarySwitch;
+
