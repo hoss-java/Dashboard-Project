@@ -3,7 +3,8 @@
 export type ItemType = 
   | 'text' 
   | 'box'
-  | 'card';
+  | 'card'
+  | 'historyDiagram';
 
 
 export interface Item {

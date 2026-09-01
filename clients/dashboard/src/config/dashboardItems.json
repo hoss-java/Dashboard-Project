@@ -36,6 +36,15 @@
               "type": "text",
               "content": "Current temperature value (°C)",
               "fontSize": "small"
+            },
+            {
+              "id": "2.1.2",
+              "type": "historyDiagram",
+              "content": "temperature",
+              "label": "Temperature Over Time",
+              "width": 600,
+              "height": 400,
+              "lineColor": "#FF6B6B"
             }
           ]
         },

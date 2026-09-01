@@ -20,6 +20,15 @@
       "description": "A Material UI card with optional title, footer, and nested items",
       "path": "Card",
       "fileName": "CardComponent"
+    },
+    {
+      "type": "historyDiagram",
+      "displayName": "History Diagram Component",
+      "description": "A canvas-based line chart displaying registered data history with grid, axes, labels, and live updates",
+      "path": "HistoryDiagram",
+      "fileName": "HistoryDiagramComponent"
     }
   ]
 }
+
+
