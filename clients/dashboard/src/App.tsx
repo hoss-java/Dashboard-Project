@@ -1,8 +1,11 @@
 // src/App.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import HomePage from './pages/HomePage';
+import { mockInitializer } from './services/MockInitializer';
+import mocksConfig from './config/mocks-config.json';
+import { MocksConfig } from './services/MockInitializer';
 import './App.css';
 
 const theme = createTheme({
@@ -17,6 +20,11 @@ const theme = createTheme({
 });
 
 function App() {
+  useEffect(() => {
+    // Initialize mocks from imported JSON config
+    mockInitializer.initialize(mocksConfig as MocksConfig);
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
