@@ -2,7 +2,7 @@
 import TextComponent from './Text/TextComponent';
 import BoxComponent from './Box/BoxComponent';
 import CardComponent from './Card/CardComponent';
-import HistoryDiagram from './components/HistoryDiagram/HistoryDiagram';
+import HistoryDiagramComponent from './components/HistoryDiagram/HistoryDiagramComponent';
 import componentRegistryConfig from '../config/componentRegistry.json';
 import type { FC } from 'react';
 
@@ -26,14 +26,12 @@ class ComponentRegistry {
       text: TextComponent,
       box: BoxComponent,
       card: CardComponent,
-      historyDiagram: HistoryDiagram,
+      historyDiagram: HistoryDiagramComponent,
     };
 
     componentRegistryConfig.components.forEach((config) => {
-      // @ts-ignore
       const component = componentMap[config.type];
       if (component !== undefined) {
-        // @ts-ignore
         this.registry.set(config.type, {
           component,
           displayName: config.displayName,
@@ -44,7 +42,6 @@ class ComponentRegistry {
       }
     });
   }
-
 
   getComponent(type: string): ComponentConfig | undefined {
     return this.registry.get(type);

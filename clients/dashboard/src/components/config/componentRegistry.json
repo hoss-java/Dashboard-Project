@@ -22,9 +22,13 @@
       "fileName": "CardComponent"
     },
     {
-      "name": "historyDiagram",
-      "displayName": "History Diagram",
-      "icon": "ShowChart"
+      "type": "historyDiagram",
+      "displayName": "History Diagram Component",
+      "description": "A canvas-based line chart displaying registered data history with grid, axes, labels, and live updates",
+      "path": "HistoryDiagram",
+      "fileName": "HistoryDiagramComponent"
     }
   ]
 }
+
+
