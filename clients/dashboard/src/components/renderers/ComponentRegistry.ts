@@ -2,6 +2,7 @@
 import TextComponent from './Text/TextComponent';
 import BoxComponent from './Box/BoxComponent';
 import CardComponent from './Card/CardComponent';
+import BinarySwitch from './BinarySwitch/BinarySwitch';
 import componentRegistryConfig from '../config/componentRegistry.json';
 import type { FC } from 'react';
 
@@ -25,6 +26,7 @@ class ComponentRegistry {
       text: TextComponent,
       box: BoxComponent,
       card: CardComponent,
+      binarySwitch: BinarySwitch,
     };
 
     componentRegistryConfig.components.forEach((config) => {

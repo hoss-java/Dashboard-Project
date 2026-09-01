@@ -2,12 +2,12 @@
   "items": [
     {
       "id": "1",
-      "type": "text",
-      "content": "Main Title",
-      "fontSize": "large",
-      "fontWeight": "bold",
-      "align": "center",
-      "padding": 2
+      "type": "binarySwitch",
+      "isOn": false,
+      "label": "Security System",
+      "onLabel": "ARMED",
+      "offLabel": "DISARMED",
+      "size": "medium"
     },
     {
       "id": "2",
@@ -91,6 +91,15 @@
       "fontSize": "small",
       "padding": 2,
       "align": "center"
+    },
+    {
+      "id": "4",
+      "type": "text",
+      "content": "Main Title",
+      "fontSize": "large",
+      "fontWeight": "bold",
+      "align": "center",
+      "padding": 2
     }
   ]
 }

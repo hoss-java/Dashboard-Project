@@ -3,21 +3,36 @@
 export type ItemType = 
   | 'text' 
   | 'box'
-  | 'card';
+  | 'card'
+  | 'binarySwitch';
 
 
 export interface Item {
   id: string;
   type: ItemType;
   icon?: any;
+  isOn: boolean;
+  label: string;
+  onLabel: string;
+  offLabel: string;
+  size: string;
   visible?: boolean;
   disabled?: boolean;
   [key: string]: any;
 }
 
+export interface BinarySwitch {
+    isOn: boolean;
+    label: string;
+    onLabel: string;
+    offLabel: string;
+    size: string;
+    }
+
 export interface ItemRendererProps {
   item: Item;
   onItemClick?: (itemId: string, item: Item) => void;
+
   [key: string]: any;
 }
 
