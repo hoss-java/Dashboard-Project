@@ -11,11 +11,6 @@ export interface Item {
   id: string;
   type: ItemType;
   icon?: any;
-  isOn: boolean;
-  label: string;
-  onLabel: string;
-  offLabel: string;
-  size: string;
   visible?: boolean;
   disabled?: boolean;
   [key: string]: any;
@@ -38,6 +33,7 @@ export interface BinarySwitch {
 
 export interface ItemRendererProps {
   item: Item;
+  defaultStyle?: DefaultStyle;
   onItemClick?: (itemId: string, item: Item) => void;
 
   [key: string]: any;
@@ -82,3 +78,18 @@ export interface CardItemStyle extends BaseItemStyle {
   title?: string;
   footer?: string;
 }
+// Add this style interface
+export interface BinarySwitchItemStyle extends BaseItemStyle {
+  type: 'binarySwitch';
+  isOn: boolean;
+  label?: string;
+  onLabel?: string;
+  offLabel?: string;
+  size?: 'small' | 'medium' | 'large';
+  showBorder?: boolean;
+  borderColor?: string;
+  onStatusColor?: string;
+  offStatusColor?: string;
+}
+
+
