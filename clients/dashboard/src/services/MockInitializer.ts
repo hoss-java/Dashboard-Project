@@ -19,7 +19,7 @@ export type SimulatorType = 'constant' | 'incremental' | 'random' | 'sine' | 'cu
 
 export interface SimulatorConfig {
   type: SimulatorType;
-  interval: number;
+  interval?: number;  // Default: 1000
   loop?: boolean;
   duration?: number;
   // For 'incremental'
@@ -30,9 +30,10 @@ export interface SimulatorConfig {
   // For 'sine'
   amplitude?: number;
   frequency?: number;
-  // For 'custom'
-  customFn?: (elapsedTime: number) => any;
+  // For 'custom' — now a string key, not a function
+  customFnKey?: string;
 }
+
 
 class MockInitializer {
   initialize(config: MocksConfig): void {

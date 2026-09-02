@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import HomePage from './pages/HomePage';
@@ -20,9 +20,14 @@ const theme = createTheme({
 });
 
 function App() {
+  const initializedRef = useRef(false);
+
   useEffect(() => {
-    // Initialize mocks from imported JSON config
-    mockInitializer.initialize(mocksConfig as MocksConfig);
+    // Only initialize once, even if useEffect runs twice in StrictMode
+    if (!initializedRef.current) {
+      mockInitializer.initialize(mocksConfig as MocksConfig);
+      initializedRef.current = true;
+    }
   }, []);
 
   return (

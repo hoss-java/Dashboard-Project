@@ -2,7 +2,9 @@
 import TextComponent from './Text/TextComponent';
 import BoxComponent from './Box/BoxComponent';
 import CardComponent from './Card/CardComponent';
+import BinarySwitchComponent from './BinarySwitch/BinarySwitchComponent';
 import HistoryDiagramComponent from './HistoryDiagram/HistoryDiagramComponent';
+import NumericDisplayComponent from './NumericDisplay/NumericDisplayComponent';
 import componentRegistryConfig from '../config/componentRegistry.json';
 import type { FC } from 'react';
 
@@ -26,7 +28,9 @@ class ComponentRegistry {
       text: TextComponent,
       box: BoxComponent,
       card: CardComponent,
+      binarySwitch: BinarySwitchComponent,
       historyDiagram: HistoryDiagramComponent,
+      numericDisplay: NumericDisplayComponent,
     };
 
     componentRegistryConfig.components.forEach((config) => {
