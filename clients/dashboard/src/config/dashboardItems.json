@@ -1,28 +1,6 @@
 {
   "items": [
-    {
-      "id": "5",
-      "type": "box",
-      "padding": 2,
-      "gap": 2,
-      "align": "center",
-      "items": [
-        {
-          "id": "5.1",
-          "type": "card",
-          "title": "GPS Navigation",
-          "footer": "Live position & movement history",
-          "padding": 2,
-          "gap": 1,
-          "items": [
-            {
-              "id": "5.1.1",
-              "type": "gpsMap",
-              "content": "gpsTracker",
-              "label": "Boat Position",
-              "width": 600,
-              "height": 400
-            },
+
     {
       "id": "1",
       "type": "text",
@@ -42,13 +20,36 @@
         {
           "id": "2.1",
           "type": "card",
+          "title": "GPS Navigation",
+          "footer": "Live position & movement history",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.1.1",
+              "type": "gpsMap",
+              "content": "gpsTracker",
+              "label": "Boat Position",
+              "width": 600,
+              "height": 400
+            },
+    {
+      "id": "3",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "3.1",
+          "type": "card",
           "title": "Temperature",
           "footer": "Updates every 1 second",
           "padding": 2,
           "gap": 1,
           "items": [
             {
-              "id": "2.1.1",
+              "id": "3.1.1",
               "type": "numericDisplay",
               "content": "temperature",
               "label": "Temperature",
@@ -63,7 +64,7 @@
               "animateChanges": true
             },
             {
-              "id": "2.1.2",
+              "id": "3.1.2",
               "type": "historyDiagram",
               "content": "temperature",
               "label": "Temperature Over Time",
@@ -76,7 +77,7 @@
           ]
         },
         {
-          "id": "2.2",
+          "id": "3.2",
           "type": "card",
           "title": "Humidity",
           "footer": "Updates every 1 second",
@@ -84,7 +85,7 @@
           "gap": 1,
           "items": [
             {
-              "id": "2.2.1",
+              "id": "3.2.1",
               "type": "numericDisplay",
               "content": "humidity",
               "label": "Humidity",
@@ -98,7 +99,7 @@
               "animateChanges": true
             },
             {
-              "id": "2.2.2",
+              "id": "3.2.2",
               "type": "historyDiagram",
               "content": "humidity",
               "label": "Humidity Over Time",
@@ -111,7 +112,7 @@
           ]
         },
         {
-          "id": "2.3",
+          "id": "3.3",
           "type": "card",
           "title": "Battery Level",
           "footer": "Updates every 2 seconds",
@@ -119,7 +120,7 @@
           "gap": 1,
           "items": [
             {
-              "id": "2.3.1",
+              "id": "3.3.1",
               "type": "numericDisplay",
               "content": "batteryLevel",
               "label": "Battery",
@@ -136,7 +137,7 @@
           ]
         },
         {
-          "id": "2.4",
+          "id": "3.4",
           "type": "card",
           "title": "Fuel Level",
           "footer": "Updates every 2 seconds",
@@ -144,7 +145,7 @@
           "gap": 1,
           "items": [
             {
-              "id": "2.4.1",
+              "id": "3.4.1",
               "type": "numericDisplay",
               "content": "fuelLevel",
               "label": "Fuel",
@@ -162,14 +163,14 @@
       ]
     },
     {
-      "id": "3",
+      "id": "4",
       "type": "box",
       "padding": 2,
       "gap": 2,
       "align": "center",
       "items": [
         {
-          "id": "3.1",
+          "id": "4.1",
           "type": "card",
           "title": "Door Status",
           "footer": "Real-time state",
@@ -177,7 +178,7 @@
           "gap": 1,
           "items": [
             {
-              "id": "3.1.1",
+              "id": "4.1.1",
               "type": "binarySwitch",
               "content": "doorStatus",
               "label": "Cabin Door",
@@ -188,7 +189,7 @@
               "offStatusColor": "success.main"
             },
             {
-              "id": "3.1.2",
+              "id": "4.1.2",
               "type": "binarySwitch",
               "content": "engineHatchStatus",
               "label": "Engine Hatch",
@@ -201,7 +202,7 @@
           ]
         },
         {
-          "id": "3.2",
+          "id": "4.2",
           "type": "card",
           "title": "System Status",
           "footer": "Status indicators",
@@ -209,7 +210,7 @@
           "gap": 1,
           "items": [
             {
-              "id": "3.2.1",
+              "id": "4.2.1",
               "type": "binarySwitch",
               "content": "engineStatus",
               "label": "Engine Running",
@@ -220,7 +221,7 @@
               "offStatusColor": "text.secondary"
             },
             {
-              "id": "3.2.2",
+              "id": "4.2.2",
               "type": "binarySwitch",
               "content": "anchorStatus",
               "label": "Anchor Deployed",
@@ -235,7 +236,7 @@
       ]
     },
     {
-      "id": "4",
+      "id": "5",
       "type": "text",
       "content": "Real-time monitoring — All data updates from DataRegistry",
       "fontSize": "small",
