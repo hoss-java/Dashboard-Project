@@ -5,10 +5,6 @@ import { dataRegistry } from '../../../../services/DataRegistry';
 import { resolveValue } from '../../../utils/resolveValue';
 import type { ItemRendererProps } from '../../../types';
 
-/**
- * HistoryDiagram - renders a line chart from historical data
- * Follows standard pattern: accepts item from JSON config, resolves values
- */
 export const HistoryDiagram: React.FC<ItemRendererProps> = ({
                                                               item,
                                                               defaultStyle,
@@ -30,32 +26,49 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
   useEffect(() => {
     if (!dataName) {
       console.warn('[HistoryDiagram] No data name provided in item.content');
+      setHistoryData([]);
       return;
     }
 
     // Ensure data is registered
     if (!dataRegistry.get(dataName)) {
-      console.warn(`[HistoryDiagramComponent] Data "${dataName}" not registered`);
+      console.warn(`[HistoryDiagram] Data "${dataName}" not registered`);
+      setHistoryData([]);
       return;
     }
 
     // Get initial history
     const history = dataRegistry.getHistory(dataName);
-    const transformed = history.map((entry) => ({
-      timestamp: entry.timestamp,
-      value: entry.newValue,
-    }));
-    setHistoryData(transformed);
+
+    // **FIX: Validate history array and filter undefined entries**
+    if (Array.isArray(history)) {
+      const transformed = history
+          .filter((entry) => entry && typeof entry === 'object') // Ensure entry exists
+          .map((entry) => ({
+            timestamp: entry.timestamp ?? Date.now(),
+            value: entry.newValue ?? 0,
+          }));
+      setHistoryData(transformed);
+    } else {
+      console.warn(`[HistoryDiagram] getHistory returned non-array:`, history);
+      setHistoryData([]);
+    }
 
     // Subscribe to changes and update history
     const callbackId = `history-diagram-${item.id}-${Math.random()}`;
     const handleChange = () => {
       const updatedHistory = dataRegistry.getHistory(dataName);
-      const transformed = updatedHistory.map((entry) => ({
-        timestamp: entry.timestamp,
-        value: entry.newValue,
-      }));
-      setHistoryData(transformed);
+
+      // **FIX: Validate here too**
+      if (Array.isArray(updatedHistory)) {
+        const transformed = updatedHistory
+            .filter((entry) => entry && typeof entry === 'object')
+            .map((entry) => ({
+              timestamp: entry.timestamp ?? Date.now(),
+              value: entry.newValue ?? 0,
+            }));
+        setHistoryData(transformed);
+      }
     };
 
     dataRegistry.onChange(dataName, callbackId, handleChange);
@@ -75,8 +88,8 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Handle edge cases
-    if (!historyData || historyData.length === 0) {
+    // **FIX: Add guard for undefined historyData**
+    if (!historyData || !Array.isArray(historyData) || historyData.length === 0) {
       ctx.fillStyle = '#f5f5f5';
       ctx.fillRect(0, 0, width, height);
       ctx.fillStyle = '#999';
@@ -96,8 +109,18 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     ctx.fillRect(0, 0, width, height);
 
     // ===== 3. Calculate data ranges =====
-    const timestamps = historyData.map((point) => point.timestamp);
-    const values = historyData.map((point) => point.value);
+    const timestamps = historyData.map((point) => point?.timestamp ?? 0).filter((t) => t !== undefined);
+    const values = historyData.map((point) => point?.value ?? 0).filter((v) => v !== undefined);
+
+    if (timestamps.length === 0 || values.length === 0) {
+      ctx.fillStyle = '#f5f5f5';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = '#999';
+      ctx.font = '14px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('No valid data points', width / 2, height / 2);
+      return;
+    }
 
     const minTime = Math.min(...timestamps);
     const maxTime = Math.max(...timestamps);
@@ -154,8 +177,10 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     for (let i = 0; i < xLabelCount; i++) {
       const index = Math.floor((historyData.length - 1) * (i / (xLabelCount - 1)));
       const point = historyData[index];
-      const x = padding.left + (drawableWidth * (point.timestamp - minTime)) / timeRange;
-      ctx.fillText(`${Math.round(point.timestamp)}`, x, height - padding.bottom + 10);
+      if (point?.timestamp !== undefined) {
+        const x = padding.left + (drawableWidth * (point.timestamp - minTime)) / timeRange;
+        ctx.fillText(`${Math.round(point.timestamp)}`, x, height - padding.bottom + 10);
+      }
     }
 
     // ===== 6. Draw data line =====
@@ -168,6 +193,8 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     let isFirstPoint = true;
 
     for (const point of historyData) {
+      if (!point || point.timestamp === undefined || point.value === undefined) continue;
+
       const x = padding.left + (drawableWidth * (point.timestamp - minTime)) / timeRange;
       const y =
           height -
@@ -189,6 +216,8 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     const dotRadius = 4;
 
     for (const point of historyData) {
+      if (!point || point.timestamp === undefined || point.value === undefined) continue;
+
       const x = padding.left + (drawableWidth * (point.timestamp - minTime)) / timeRange;
       const y =
           height -
