@@ -1,3 +1,5 @@
+// src/components/renderers/components/HistoryDiagram/HistoryDiagram.tsx
+
 // src/components/renderers/HistoryDiagram/HistoryDiagramComponent.tsx
 import React, { useRef, useEffect, useState } from 'react';
 import { Box } from '@mui/material';
