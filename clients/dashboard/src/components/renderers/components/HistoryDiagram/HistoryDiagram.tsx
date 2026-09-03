@@ -10,10 +10,10 @@ import type { ItemRendererProps } from '../../../types';
  * Follows standard pattern: accepts item from JSON config, resolves values
  */
 export const HistoryDiagram: React.FC<ItemRendererProps> = ({
-  item,
-  defaultStyle,
-  onItemClick,
-}) => {
+                                                              item,
+                                                              defaultStyle,
+                                                              onItemClick,
+                                                            }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [historyData, setHistoryData] = useState<Array<{ timestamp: number; value: number }>>([]);
 
@@ -170,9 +170,9 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     for (const point of historyData) {
       const x = padding.left + (drawableWidth * (point.timestamp - minTime)) / timeRange;
       const y =
-        height -
-        padding.bottom -
-        (drawableHeight * (point.value - dataMinValue)) / valueRange;
+          height -
+          padding.bottom -
+          (drawableHeight * (point.value - dataMinValue)) / valueRange;
 
       if (isFirstPoint) {
         ctx.moveTo(x, y);
@@ -191,9 +191,9 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     for (const point of historyData) {
       const x = padding.left + (drawableWidth * (point.timestamp - minTime)) / timeRange;
       const y =
-        height -
-        padding.bottom -
-        (drawableHeight * (point.value - dataMinValue)) / valueRange;
+          height -
+          padding.bottom -
+          (drawableHeight * (point.value - dataMinValue)) / valueRange;
 
       ctx.beginPath();
       ctx.arc(x, y, dotRadius, 0, 2 * Math.PI);
@@ -221,31 +221,31 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
   };
 
   return (
-    <Box
-      onClick={onItemClickHandler}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 2,
-        padding: 2,
-        backgroundColor: '#fafafa',
-        borderRadius: 1,
-        border: '1px solid #e0e0e0',
-        cursor: 'pointer',
-      }}
-    >
-      <canvas
-        ref={canvasRef}
-        width={width}
-        height={height}
-        style={{
-          border: '1px solid #ddd',
-          borderRadius: 4,
-          backgroundColor: '#fff',
-        }}
-      />
-    </Box>
+      <Box
+          onClick={onItemClickHandler}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 2,
+            padding: 2,
+            backgroundColor: '#fafafa',
+            borderRadius: 1,
+            border: '1px solid #e0e0e0',
+            cursor: 'pointer',
+          }}
+      >
+        <canvas
+            ref={canvasRef}
+            width={width}
+            height={height}
+            style={{
+              border: '1px solid #ddd',
+              borderRadius: 4,
+              backgroundColor: '#fff',
+            }}
+        />
+      </Box>
   );
 };
 
