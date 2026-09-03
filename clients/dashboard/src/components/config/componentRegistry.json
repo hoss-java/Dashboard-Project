@@ -22,13 +22,25 @@
       "fileName": "CardComponent"
     },
     {
+      "type": "binarySwitch",
+      "displayName": "Binary Switch Component",
+      "description": "A toggle switch with customizable on/off labels, status colors, and styling",
+      "path": "BinarySwitch",
+      "fileName": "BinarySwitchComponent"
+    },
+    {
       "type": "historyDiagram",
       "displayName": "History Diagram Component",
       "description": "A canvas-based line chart displaying registered data history with grid, axes, labels, and live updates",
       "path": "HistoryDiagram",
       "fileName": "HistoryDiagramComponent"
+    },
+    {
+      "type": "numericDisplay",
+      "displayName": "Numeric Display Component",
+      "description": "Displays numeric values with customizable formatting, colors, and styling",
+      "path": "NumericDisplay",
+      "fileName": "NumericDisplayComponent"
     }
   ]
 }
-
-

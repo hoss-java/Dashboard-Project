@@ -2,9 +2,11 @@
 import TextComponent from './Text/TextComponent';
 import BoxComponent from './Box/BoxComponent';
 import CardComponent from './Card/CardComponent';
+import BinarySwitchComponent from './BinarySwitch/BinarySwitchComponent';
+import HistoryDiagramComponent from './HistoryDiagram/HistoryDiagramComponent';
+import NumericDisplayComponent from './NumericDisplay/NumericDisplayComponent';
 import componentRegistryConfig from '../config/componentRegistry.json';
-import React, { FC } from 'react';
-import HistoryDiagram from "./components/HistoryDiagram/HistoryDiagram";
+import type { FC } from 'react';
 
 export interface ComponentConfig {
   component: FC<any>;
@@ -13,15 +15,6 @@ export interface ComponentConfig {
   path: string;
   fileName: string;
 }
-
-export const componentMap: Record<string, React.ComponentType<any>> = {
-  text: TextComponent,
-  box: BoxComponent,
-  card: CardComponent,
-  historyDiagram: HistoryDiagram,
-};
-
-export default componentMap;
 
 class ComponentRegistry {
   private registry = new Map<string, ComponentConfig>();
@@ -35,7 +28,10 @@ class ComponentRegistry {
       text: TextComponent,
       box: BoxComponent,
       card: CardComponent,
-          };
+      binarySwitch: BinarySwitchComponent,
+      historyDiagram: HistoryDiagramComponent,
+      numericDisplay: NumericDisplayComponent,
+    };
 
     componentRegistryConfig.components.forEach((config) => {
       const component = componentMap[config.type];

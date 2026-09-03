@@ -3,7 +3,7 @@
     {
       "id": "1",
       "type": "text",
-      "content": "Boat Dashboard",
+      "content": "Industrial Control Panel",
       "fontSize": "large",
       "fontWeight": "bold",
       "align": "center",
@@ -19,44 +19,33 @@
         {
           "id": "2.1",
           "type": "card",
-          "title": "Temperature",
-          "footer": "Updates every 1 second",
+          "title": "Chamber Temperature",
+          "footer": "Updates every 2 seconds",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "2.1.1",
               "type": "numericDisplay",
-              "content": "temperature",
+              "content": "chamberTemp",
               "label": "Temperature",
               "variant": "thermometer",
               "format": "standard",
               "decimals": 1,
               "suffix": "°C",
-              "minValue": 0,
-              "maxValue": 50,
+              "minValue": -20,
+              "maxValue": 100,
               "thermometerHeight": 120,
-              "gaugeColor": "warning",
+              "gaugeColor": "error",
               "animateChanges": true
-            },
-            {
-              "id": "2.1.2",
-              "type": "historyDiagram",
-              "content": "temperature",
-              "label": "Temperature Over Time",
-              "width": 600,
-              "height": 300,
-              "minValue": 0,
-              "maxValue": 50,
-              "lineColor": "#FF6B6B"
             }
           ]
         },
         {
           "id": "2.2",
           "type": "card",
-          "title": "Humidity",
-          "footer": "Updates every 1 second",
+          "title": "Humidity Control",
+          "footer": "Updates every 3 seconds",
           "padding": 2,
           "gap": 1,
           "items": [
@@ -70,27 +59,16 @@
               "decimals": 1,
               "minValue": 0,
               "maxValue": 100,
-              "barHeight": 12,
-              "barColor": "success",
+              "barHeight": 16,
+              "barColor": "primary",
               "animateChanges": true
-            },
-            {
-              "id": "2.2.2",
-              "type": "historyDiagram",
-              "content": "humidity",
-              "label": "Humidity Over Time",
-              "width": 600,
-              "height": 300,
-              "minValue": 0,
-              "maxValue": 100,
-              "lineColor": "#4ECDC4"
             }
           ]
         },
         {
           "id": "2.3",
           "type": "card",
-          "title": "Battery Level",
+          "title": "System Pressure",
           "footer": "Updates every 2 seconds",
           "padding": 2,
           "gap": 1,
@@ -98,13 +76,14 @@
             {
               "id": "2.3.1",
               "type": "numericDisplay",
-              "content": "batteryLevel",
-              "label": "Battery",
+              "content": "sysPressure",
+              "label": "Pressure",
               "variant": "gauge",
-              "format": "percentage",
-              "decimals": 0,
+              "format": "standard",
+              "decimals": 2,
+              "suffix": "MPa",
               "minValue": 0,
-              "maxValue": 100,
+              "maxValue": 25,
               "gaugeSize": 140,
               "gaugeThickness": 10,
               "gaugeColor": "warning",
@@ -115,24 +94,33 @@
         {
           "id": "2.4",
           "type": "card",
-          "title": "Fuel Level",
-          "footer": "Updates every 2 seconds",
+          "title": "Production Rate",
+          "footer": "Updates every 5 seconds",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "2.4.1",
               "type": "numericDisplay",
-              "content": "fuelLevel",
-              "label": "Fuel",
-              "variant": "bar",
-              "format": "percentage",
+              "content": "prodRate",
+              "label": "Units/Hour",
+              "variant": "text",
+              "format": "standard",
               "decimals": 0,
               "minValue": 0,
-              "maxValue": 100,
-              "barHeight": 12,
-              "barColor": "error",
+              "maxValue": 500,
               "animateChanges": true
+            },
+            {
+              "id": "2.4.2",
+              "type": "historyDiagram",
+              "content": "prodRate",
+              "label": "Production Over Time",
+              "width": 600,
+              "height": 300,
+              "minValue": 0,
+              "maxValue": 500,
+              "lineColor": "#2E7D32"
             }
           ]
         }
@@ -148,48 +136,16 @@
         {
           "id": "3.1",
           "type": "card",
-          "title": "Door Status",
-          "footer": "Real-time state",
+          "title": "Equipment Status",
+          "footer": "Operational state",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "3.1.1",
               "type": "binarySwitch",
-              "content": "doorStatus",
-              "label": "Cabin Door",
-              "onLabel": "Open",
-              "offLabel": "Closed",
-              "size": "medium",
-              "onStatusColor": "error.main",
-              "offStatusColor": "success.main"
-            },
-            {
-              "id": "3.1.2",
-              "type": "binarySwitch",
-              "content": "engineHatchStatus",
-              "label": "Engine Hatch",
-              "onLabel": "Open",
-              "offLabel": "Closed",
-              "size": "medium",
-              "onStatusColor": "error.main",
-              "offStatusColor": "success.main"
-            }
-          ]
-        },
-        {
-          "id": "3.2",
-          "type": "card",
-          "title": "System Status",
-          "footer": "Status indicators",
-          "padding": 2,
-          "gap": 1,
-          "items": [
-            {
-              "id": "3.2.1",
-              "type": "binarySwitch",
-              "content": "engineStatus",
-              "label": "Engine Running",
+              "content": "mainMotor",
+              "label": "Main Motor",
               "onLabel": "Running",
               "offLabel": "Stopped",
               "size": "medium",
@@ -197,15 +153,47 @@
               "offStatusColor": "text.secondary"
             },
             {
+              "id": "3.1.2",
+              "type": "binarySwitch",
+              "content": "coolingSystem",
+              "label": "Cooling System",
+              "onLabel": "Active",
+              "offLabel": "Inactive",
+              "size": "medium",
+              "onStatusColor": "success.main",
+              "offStatusColor": "text.secondary"
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "type": "card",
+          "title": "Safety Systems",
+          "footer": "Protection status",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "3.2.1",
+              "type": "binarySwitch",
+              "content": "emergencyStop",
+              "label": "Emergency Stop",
+              "onLabel": "Engaged",
+              "offLabel": "Ready",
+              "size": "medium",
+              "onStatusColor": "error.main",
+              "offStatusColor": "success.main"
+            },
+            {
               "id": "3.2.2",
               "type": "binarySwitch",
-              "content": "anchorStatus",
-              "label": "Anchor Deployed",
-              "onLabel": "Deployed",
-              "offLabel": "Stowed",
+              "content": "safetyGuard",
+              "label": "Safety Guard",
+              "onLabel": "Closed",
+              "offLabel": "Open",
               "size": "medium",
-              "onStatusColor": "info.main",
-              "offStatusColor": "text.secondary"
+              "onStatusColor": "success.main",
+              "offStatusColor": "error.main"
             }
           ]
         }
@@ -214,7 +202,7 @@
     {
       "id": "4",
       "type": "text",
-      "content": "Real-time monitoring — All data updates from DataRegistry",
+      "content": "Industrial operations — Critical performance and safety indicators monitored continuously",
       "fontSize": "small",
       "padding": 2,
       "align": "center",

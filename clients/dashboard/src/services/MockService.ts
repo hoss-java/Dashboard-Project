@@ -13,7 +13,7 @@ export interface SimulatorConfig {
   frequency?: number; // For 'sine'
   interval?: number; // Milliseconds between updates (default: 1000)
   duration?: number; // Total time to run in ms (null = infinite)
-  customFn?: (currentValue: any, timestamp: number, elapsedTime: number) => any;
+  customFnKey?: string; // Reference to custom function (e.g., 'decayBattery')
   loop?: boolean; // Loop when duration is reached (default: false)
 }
 
@@ -34,6 +34,19 @@ export interface SimulatorStatus {
   pausedTime: number | null;
   elapsedTime: number;
 }
+
+// Custom function registry — add your custom functions here
+const customFunctions: Record<string, (currentValue: any, timestamp: number, elapsedTime: number) => any> = {
+  decayBattery: (currentValue: number, timestamp: number, elapsedTime: number) => {
+    // Example: Battery decays over time
+    return Math.max(0, currentValue - (elapsedTime / 1000) * 0.1);
+  },
+  decayFuel: (currentValue: number, timestamp: number, elapsedTime: number) => {
+    // Example: Fuel decays over time
+    return Math.max(0, currentValue - (elapsedTime / 1000) * 0.05);
+  },
+  // Add more custom functions as needed
+};
 
 class MockService {
   private mocks: Map<string, MockDefinition> = new Map();
@@ -250,10 +263,11 @@ class MockService {
         break;
 
       case 'custom':
-        if (config.customFn) {
-          newValue = config.customFn(currentValue, Date.now(), elapsedTime);
+        const fnKey = config.customFnKey;
+        if (fnKey && customFunctions[fnKey]) {
+          newValue = customFunctions[fnKey](currentValue, Date.now(), elapsedTime);
         } else {
-          console.warn(`MockService: Custom function not provided for "${id}"`);
+          console.warn(`MockService: Custom function "${fnKey}" not found for "${id}"`);
           return;
         }
         break;

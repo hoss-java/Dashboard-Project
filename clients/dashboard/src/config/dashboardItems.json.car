@@ -3,7 +3,7 @@
     {
       "id": "1",
       "type": "text",
-      "content": "Boat Dashboard",
+      "content": "Vehicle Dashboard",
       "fontSize": "large",
       "fontWeight": "bold",
       "align": "center",
@@ -19,95 +19,74 @@
         {
           "id": "2.1",
           "type": "card",
-          "title": "Temperature",
-          "footer": "Updates every 1 second",
+          "title": "Engine Temperature",
+          "footer": "Updates every 3 seconds",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "2.1.1",
               "type": "numericDisplay",
-              "content": "temperature",
+              "content": "engineTemp",
               "label": "Temperature",
               "variant": "thermometer",
               "format": "standard",
-              "decimals": 1,
+              "decimals": 0,
               "suffix": "°C",
               "minValue": 0,
-              "maxValue": 50,
+              "maxValue": 120,
               "thermometerHeight": 120,
-              "gaugeColor": "warning",
+              "gaugeColor": "error",
               "animateChanges": true
-            },
-            {
-              "id": "2.1.2",
-              "type": "historyDiagram",
-              "content": "temperature",
-              "label": "Temperature Over Time",
-              "width": 600,
-              "height": 300,
-              "minValue": 0,
-              "maxValue": 50,
-              "lineColor": "#FF6B6B"
             }
           ]
         },
         {
           "id": "2.2",
           "type": "card",
-          "title": "Humidity",
-          "footer": "Updates every 1 second",
+          "title": "Fuel Tank",
+          "footer": "Updates every 4 seconds",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "2.2.1",
               "type": "numericDisplay",
-              "content": "humidity",
-              "label": "Humidity",
+              "content": "fuelTank",
+              "label": "Fuel Level",
               "variant": "bar",
               "format": "percentage",
-              "decimals": 1,
+              "decimals": 0,
               "minValue": 0,
               "maxValue": 100,
-              "barHeight": 12,
-              "barColor": "success",
+              "barHeight": 16,
+              "barColor": "warning",
               "animateChanges": true
-            },
-            {
-              "id": "2.2.2",
-              "type": "historyDiagram",
-              "content": "humidity",
-              "label": "Humidity Over Time",
-              "width": 600,
-              "height": 300,
-              "minValue": 0,
-              "maxValue": 100,
-              "lineColor": "#4ECDC4"
             }
           ]
         },
         {
           "id": "2.3",
           "type": "card",
-          "title": "Battery Level",
-          "footer": "Updates every 2 seconds",
+          "title": "Battery",
+          "footer": "Updates every 3 seconds",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "2.3.1",
               "type": "numericDisplay",
-              "content": "batteryLevel",
-              "label": "Battery",
+              "content": "batteryVoltage",
+              "label": "Battery Voltage",
               "variant": "gauge",
-              "format": "percentage",
-              "decimals": 0,
-              "minValue": 0,
-              "maxValue": 100,
+              "format": "standard",
+              "decimals": 1,
+              "suffix": "V",
+              "minValue": 10,
+              "maxValue": 16,
               "gaugeSize": 140,
               "gaugeThickness": 10,
-              "gaugeColor": "warning",
+              "gaugeColor": "primary",
               "animateChanges": true
             }
           ]
@@ -115,24 +94,34 @@
         {
           "id": "2.4",
           "type": "card",
-          "title": "Fuel Level",
-          "footer": "Updates every 2 seconds",
+          "title": "Speed",
+          "footer": "Updates every 1 second",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "2.4.1",
               "type": "numericDisplay",
-              "content": "fuelLevel",
-              "label": "Fuel",
-              "variant": "bar",
-              "format": "percentage",
+              "content": "speed",
+              "label": "Current Speed",
+              "variant": "text",
+              "format": "standard",
               "decimals": 0,
+              "suffix": "km/h",
               "minValue": 0,
-              "maxValue": 100,
-              "barHeight": 12,
-              "barColor": "error",
+              "maxValue": 200,
               "animateChanges": true
+            },
+            {
+              "id": "2.4.2",
+              "type": "historyDiagram",
+              "content": "speed",
+              "label": "Speed Over Time",
+              "width": 600,
+              "height": 300,
+              "minValue": 0,
+              "maxValue": 200,
+              "lineColor": "#FF6B6B"
             }
           ]
         }
@@ -148,16 +137,16 @@
         {
           "id": "3.1",
           "type": "card",
-          "title": "Door Status",
-          "footer": "Real-time state",
+          "title": "Doors & Lights",
+          "footer": "Safety status",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "3.1.1",
               "type": "binarySwitch",
-              "content": "doorStatus",
-              "label": "Cabin Door",
+              "content": "driverDoor",
+              "label": "Driver Door",
               "onLabel": "Open",
               "offLabel": "Closed",
               "size": "medium",
@@ -167,29 +156,29 @@
             {
               "id": "3.1.2",
               "type": "binarySwitch",
-              "content": "engineHatchStatus",
-              "label": "Engine Hatch",
-              "onLabel": "Open",
-              "offLabel": "Closed",
+              "content": "headlights",
+              "label": "Headlights",
+              "onLabel": "On",
+              "offLabel": "Off",
               "size": "medium",
-              "onStatusColor": "error.main",
-              "offStatusColor": "success.main"
+              "onStatusColor": "warning.main",
+              "offStatusColor": "text.secondary"
             }
           ]
         },
         {
           "id": "3.2",
           "type": "card",
-          "title": "System Status",
-          "footer": "Status indicators",
+          "title": "Engine & Parking",
+          "footer": "Control status",
           "padding": 2,
           "gap": 1,
           "items": [
             {
               "id": "3.2.1",
               "type": "binarySwitch",
-              "content": "engineStatus",
-              "label": "Engine Running",
+              "content": "engineRunning",
+              "label": "Engine",
               "onLabel": "Running",
               "offLabel": "Stopped",
               "size": "medium",
@@ -199,10 +188,10 @@
             {
               "id": "3.2.2",
               "type": "binarySwitch",
-              "content": "anchorStatus",
-              "label": "Anchor Deployed",
-              "onLabel": "Deployed",
-              "offLabel": "Stowed",
+              "content": "parkingBrake",
+              "label": "Parking Brake",
+              "onLabel": "Engaged",
+              "offLabel": "Released",
               "size": "medium",
               "onStatusColor": "info.main",
               "offStatusColor": "text.secondary"
@@ -214,7 +203,7 @@
     {
       "id": "4",
       "type": "text",
-      "content": "Real-time monitoring — All data updates from DataRegistry",
+      "content": "Vehicle telemetry — Essential metrics for safe driving",
       "fontSize": "small",
       "padding": 2,
       "align": "center",

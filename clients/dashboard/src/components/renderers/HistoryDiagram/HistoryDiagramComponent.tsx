@@ -1,9 +1,11 @@
 // src/components/renderers/components/HistoryDiagram/HistoryDiagram.tsx
+
+// src/components/renderers/HistoryDiagram/HistoryDiagramComponent.tsx
 import React, { useRef, useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { dataRegistry } from '../../../../services/DataRegistry';
-import { resolveValue } from '../../../utils/resolveValue';
-import type { ItemRendererProps } from '../../../types';
+import { dataRegistry } from '../../../services/DataRegistry';
+import { resolveValue } from '../../utils/resolveValue';
+import type { ItemRendererProps } from '../../types';
 
 export const HistoryDiagram: React.FC<ItemRendererProps> = ({
                                                               item,
