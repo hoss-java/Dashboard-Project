@@ -219,6 +219,34 @@
       "padding": 2,
       "align": "center",
       "color": "text.secondary"
+    },
+
+    {
+      "id": "5",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "5.1",
+          "type": "card",
+          "title": "GPS Navigation",
+          "footer": "Live position & movement history",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "5.1.1",
+              "type": "gpsMap",
+              "content": "gpsTracker",
+              "label": "Boat Position",
+              "width": 600,
+              "height": 400
+            }
+          ]
+        }
+      ]
     }
   ]
 }

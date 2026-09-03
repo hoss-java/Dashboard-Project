@@ -7,6 +7,7 @@ import HistoryDiagramComponent from './HistoryDiagram/HistoryDiagramComponent';
 import NumericDisplayComponent from './NumericDisplay/NumericDisplayComponent';
 import componentRegistryConfig from '../config/componentRegistry.json';
 import type { FC } from 'react';
+import GpsMapComponent from "./GpsMap/GpsMapComponent";
 
 export interface ComponentConfig {
   component: FC<any>;
@@ -31,6 +32,7 @@ class ComponentRegistry {
       binarySwitch: BinarySwitchComponent,
       historyDiagram: HistoryDiagramComponent,
       numericDisplay: NumericDisplayComponent,
+      gpsMap: GpsMapComponent,
     };
 
     componentRegistryConfig.components.forEach((config) => {
