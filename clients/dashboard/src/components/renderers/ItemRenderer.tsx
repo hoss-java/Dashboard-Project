@@ -1,33 +1,22 @@
 // src/components/renderers/ItemRenderer.tsx
-import { componentRegistry } from './ComponentRegistry';
-import type { 
-  ItemRendererProps,
-  Item
-} from '../types';
 
-export const ItemRenderer: React.FC<ItemRendererProps> = ({
-  item,
+import React from 'react';
+import { componentMap } from './ComponentRegistry';
+import type { ItemRendererProps } from '../types';
 
-  onItemClick,
-}) => {
+export const ItemRenderer: React.FC<ItemRendererProps> = (props) => {
+  const { item } = props;
+  const Component = componentMap[item.type];
 
-  const config = componentRegistry.getComponent(item.type);
-
-  if (!config) {
+  if (!Component) {
     return (
-      <div style={{ padding: '16px', color: 'red', border: '1px solid red' }}>
-        Unknown component type: <strong>{item.type}</strong>
-      </div>
+        <div style={{ color: 'red', padding: '10px', border: '2px solid red', margin: '10px' }}>
+          ❌ Unknown component type: <strong>{item.type}</strong>
+        </div>
     );
   }
 
-  const Component = config.component;
-  return (
-    <Component 
-      item={item} 
-      onItemClick={onItemClick} 
-    />
-  );
-}
+  return <Component {...props} />;
+};
 
 export default ItemRenderer;
