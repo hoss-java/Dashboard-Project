@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { dataRegistry } from '../../../services/DataRegistry';
 import L from 'leaflet';
 
+
 type LatLngPoint = {
     timestamp: number;
     lat: number;
@@ -80,16 +81,21 @@ export const GpsMap: React.FC<GpsMapProps> = ({
     const boatIcon = L.divIcon({
         className: "",
         html: `
-      <div style="
-        width: 14px;
-        height: 14px;
-        background: red;
-        border-radius: 50%;
-        border: 2px solid white;
-      "></div>
-    `,
-        iconSize: [14, 14],
-        iconAnchor: [7, 7]
+    <div style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      color: red;
+    ">
+      <span class="material-icons" style="font-size: 32px;">
+        directions_boat
+      </span>
+    </div>
+  `,
+        iconSize: [32, 32],
+        iconAnchor: [16, 16]
     });
 
     return (
@@ -101,7 +107,7 @@ export const GpsMap: React.FC<GpsMapProps> = ({
             >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-                <Polyline positions={positions} color="#2196F3" weight={10} />
+                <Polyline positions={positions} color="#2196F3" weight={20} />
 
                 <Marker position={[last.lat, last.lng]} icon={boatIcon} />
             </MapContainer>
