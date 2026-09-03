@@ -250,3 +250,4 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
 };
 
 export default HistoryDiagram;
+.
