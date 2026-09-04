@@ -14,7 +14,6 @@ export const SimErrorBoxComponent: React.FC<ItemRendererProps> = ({
                                                                       defaultStyle,
                                                                   }) => {
 
-    // Tactical error pool
     const errorPool = [
         "ENGINE OVERHEATED",
         "WATERPUMP TEMPERATURE CRITICAL",
@@ -35,7 +34,6 @@ export const SimErrorBoxComponent: React.FC<ItemRendererProps> = ({
         }
     ]);
 
-    // Generate new simulated error every 10 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             const msg = errorPool[Math.floor(Math.random() * errorPool.length)];
@@ -47,7 +45,7 @@ export const SimErrorBoxComponent: React.FC<ItemRendererProps> = ({
                     message: msg,
                 },
                 ...prev
-            ].slice(0, 20)); // keep last 20
+            ].slice(0, 20));
         }, 10000);
 
         return () => clearInterval(interval);
@@ -62,7 +60,7 @@ export const SimErrorBoxComponent: React.FC<ItemRendererProps> = ({
         });
     };
 
-    // Tactical container styling
+    // ⭐ Tactical container styling + custom scrollbar
     const getContainerSx = (): SxProps<Theme> => ({
         display: 'flex',
         flexDirection: 'column',
@@ -77,6 +75,21 @@ export const SimErrorBoxComponent: React.FC<ItemRendererProps> = ({
         maxWidth: item.width ?? 260,
         height: item.height ?? 260,
         overflowY: 'auto',
+
+        //  CUSTOM SCROLLBAR
+        '&::-webkit-scrollbar': {
+            width: '8px',
+        },
+        '&::-webkit-scrollbar-track': {
+            background: '#0a0f14',
+        },
+        '&::-webkit-scrollbar-thumb': {
+            background: '#00ff9d',
+            borderRadius: '4px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+            background: '#00bcd4',
+        }
     });
 
     const getTitleSx = (): SxProps<Theme> => ({
