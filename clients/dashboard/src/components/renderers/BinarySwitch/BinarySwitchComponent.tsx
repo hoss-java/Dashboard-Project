@@ -21,10 +21,17 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
   const offLabel = resolveValue(item.offLabel, defaultStyle?.offLabel, 'Off');
   const size = resolveValue(item.size, defaultStyle?.size, 'medium') as 'small' | 'medium';
 
-  // Tactical colors
-  const onStatusColor = resolveValue(item.onStatusColor, defaultStyle?.onStatusColor, '#00ff9d');   // neon green
-  const offStatusColor = resolveValue(item.offStatusColor, defaultStyle?.offStatusColor, '#00bcd4'); // cyan
-  const borderColor = resolveValue(item.borderColor, defaultStyle?.borderColor, '#1f2a33');
+  // Detect engine state
+  const isEngine = label.toLowerCase().includes("engine");
+
+  // Dynamic colors
+  const engineOnColor = "#00ff9d";   // green
+  const engineOffColor = "#ff0033";  // red
+
+  const onStatusColor = isEngine ? engineOnColor : "#00ff9d";
+  const offStatusColor = isEngine ? engineOffColor : "#00bcd4";
+
+  const borderColor = resolveValue(item.borderColor, defaultStyle?.borderColor, '#11181f');
 
   const gap = resolveValue(item.gap, defaultStyle?.gap, 2);
   const padding = resolveValue(item.padding, defaultStyle?.padding, 1.5);
@@ -48,7 +55,7 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
     }
   };
 
-  // 🎖️ Tactical container styling
+  // Tactical container styling
   const getContainerSx = (): SxProps<Theme> => ({
     display: 'flex',
     alignItems: 'center',
@@ -56,11 +63,11 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
     gap,
     px: 2,
     py: padding,
-    backgroundColor: '#11181f',
+    backgroundColor: '#2a3440',
     borderRadius: 2,
     border: showBorder ? `1px solid ${isOn ? onStatusColor : borderColor}` : 'none',
-    boxShadow: isOn ? '0 0 12px rgba(0,255,157,0.25)' : '0 0 6px rgba(0,188,212,0.15)',
-    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+    boxShadow: 'none', // removed glow
+    transition: 'border-color 0.2s ease',
     cursor: 'pointer',
     width: 'fit-content',
     maxWidth: '168px'
@@ -72,7 +79,7 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
 
   const getTitleSx = (): SxProps<Theme> => ({
     fontWeight: 600,
-    color: '#00ff9d',
+    color: '#ffffff',
     fontFamily: "'Share Tech Mono', monospace",
     letterSpacing: 1,
     textTransform: 'uppercase',
@@ -84,9 +91,6 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
     fontFamily: "'Share Tech Mono', monospace",
     letterSpacing: 1,
     transition: 'color 0.2s ease',
-    ...(isOn && {
-      animation: 'pulse 1.8s infinite',
-    }),
   });
 
   return (
@@ -109,7 +113,7 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
                 backgroundColor: isOn ? onStatusColor : offStatusColor,
               },
               '& .MuiSwitch-track': {
-                backgroundColor: '#1f2a33',
+                backgroundColor: '#2a3440',
               },
             }}
         />
