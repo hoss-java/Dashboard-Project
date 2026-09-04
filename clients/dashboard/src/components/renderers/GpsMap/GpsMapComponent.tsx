@@ -27,7 +27,7 @@ export const GpsMapComponent: React.FC<ItemRendererProps> = ({
                 alignItems: 'center',
                 gap: 2,
                 padding: 2,
-                backgroundColor: '#fafafa',
+                backgroundColor: '#11181f',
                 borderRadius: 1,
                 border: '1px solid #e0e0e0',
                 cursor: 'pointer',

@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import { dataRegistry } from '../../../services/DataRegistry';
 import L from 'leaflet';
 
-
 type LatLngPoint = {
     timestamp: number;
     lat: number;
@@ -24,6 +23,65 @@ export const GpsMap: React.FC<GpsMapProps> = ({
                                                   label,
                                                   dataName,
                                               }) => {
+
+    // -------------------------------
+    // 🚤 1. Route around Gotland
+    // -------------------------------
+    const gotlandRoute: [number, number][] = [
+        // 🟦 Start: Oskarshamn
+        [57.2640, 16.4480],
+
+        // 🟦 Ut från Oskarshamn mot Gotland
+        [57.3500, 16.9000],
+        [57.4500, 17.4000],
+        [57.5500, 17.9000],
+
+        // 🟦 Gotland (Visby)
+        [57.6400, 18.3000],
+
+        // 🟦 Mot Stockholm
+        [58.0000, 18.4000],
+        [58.5000, 18.3000],
+        [59.0000, 18.2000],
+
+        // 🟦 Stockholm (centralt)
+        [59.3290, 18.0680],
+
+        // 🟦 Tillbaka mot Oskarshamn
+        [58.8000, 17.8000],
+        [58.3000, 17.2000],
+        [57.8000, 16.8000],
+
+        // 🟦 Slut: Oskarshamn igen
+        [57.2640, 16.4480],
+    ];
+
+    // -------------------------------
+    // 🚤 2. Simulated movement + trail
+    // -------------------------------
+    const [simIndex, setSimIndex] = useState(0);
+    const [simTrail, setSimTrail] = useState<[number, number][]>([gotlandRoute[0]]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSimIndex((i) => {
+                const next = (i + 1) % gotlandRoute.length;
+
+                //  Add new point to the trail
+                setSimTrail((trail) => [...trail, gotlandRoute[next]]);
+
+                return next;
+            });
+        }, 8000); //  slower movement (8 seconds)
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const simulatedPos = gotlandRoute[simIndex];
+
+    // -------------------------------
+    // 🛰 3. Real GPS history
+    // -------------------------------
     const [gpsHistory, setGpsHistory] = useState<LatLngPoint[]>([]);
 
     useEffect(() => {
@@ -65,51 +123,71 @@ export const GpsMap: React.FC<GpsMapProps> = ({
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid #ddd',
-                    borderRadius: 4,
-                    backgroundColor: '#fff',
+                    border: '1px solid #1f2a33',
+                    borderRadius: 6,
+                    backgroundColor: '#11181f',
+                    color: '#00bcd4',
+                    fontFamily: "'Share Tech Mono', monospace",
+                    letterSpacing: 1,
                 }}
             >
-                No GPS data available
+                NO GPS TELEMETRY
             </div>
         );
     }
 
-    const last = gpsHistory[gpsHistory.length - 1];
     const positions = gpsHistory.map((p) => [p.lat, p.lng]) as [number, number][];
 
+    // -------------------------------
+    // 🚤 4. Tactical neon boat icon
+    // -------------------------------
     const boatIcon = L.divIcon({
         className: "",
         html: `
-    <div style="
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      color: red;
-    ">
-      <span class="material-icons" style="font-size: 32px;">
-        directions_boat
-      </span>
-    </div>
-  `,
-        iconSize: [32, 32],
-        iconAnchor: [16, 16]
+            <div style="
+                width: 22px;
+                height: 22px;
+                background: #00ff9d;
+                border-radius: 50%;
+                border: 3px solid #003f2f;
+                box-shadow: 0 0 12px rgba(0,255,157,0.6);
+            "></div>
+        `,
+        iconSize: [22, 22],
+        iconAnchor: [11, 11],
     });
 
     return (
-        <div style={{ width, height }}>
+        <div
+            style={{
+                width: '100%',
+                maxWidth: width,
+                height,
+                border: '1px solid #1f2a33',
+                borderRadius: 6,
+                overflow: 'hidden',
+                boxShadow: '0 0 20px rgba(0,255,157,0.05)',
+            }}
+        >
             <MapContainer
-                center={[last.lat, last.lng]}
-                zoom={15}
+                center={simulatedPos}   //  follow the boat
+                zoom={6}                //  zoomed out for Gotland
                 style={{ width: '100%', height: '100%' }}
             >
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
 
-                <Polyline positions={positions} color="#2196F3" weight={20} />
 
-                <Marker position={[last.lat, last.lng]} icon={boatIcon} />
+
+                {/* Simulated trail */}
+                <Polyline
+                    positions={simTrail}
+                    color="#00ff9d"
+                    weight={4}
+                    opacity={0.7}
+                />
+
+                {/*  Boat moving around Gotland */}
+                <Marker position={simulatedPos} icon={boatIcon} />
             </MapContainer>
         </div>
     );

@@ -48,6 +48,13 @@
       "description": "Displays live GPS path and current position",
       "path": "GpsMap",
       "fileName": "GpsMapComponent.tsx"
+    },
+    {
+      "type": "simErrorBox",
+      "displayName": "Simulated Error Box",
+      "description": "Displays simulated system errors with timestamps in tactical neon UI",
+      "path": "SimErrorBox",
+      "fileName": "SimErrorBoxComponent.tsx"
     }
   ]
 }

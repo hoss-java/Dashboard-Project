@@ -5,9 +5,13 @@ import CardComponent from './Card/CardComponent';
 import BinarySwitchComponent from './BinarySwitch/BinarySwitchComponent';
 import HistoryDiagramComponent from './HistoryDiagram/HistoryDiagramComponent';
 import NumericDisplayComponent from './NumericDisplay/NumericDisplayComponent';
+import GpsMapComponent from "./GpsMap/GpsMapComponent";
+
+//  NEW: Import your SimErrorBox component
+import SimErrorBoxComponent from "./SimErrorBox/SimErrorBoxComponent";
+
 import componentRegistryConfig from '../config/componentRegistry.json';
 import type { FC } from 'react';
-import GpsMapComponent from "./GpsMap/GpsMapComponent";
 
 export interface ComponentConfig {
   component: FC<any>;
@@ -25,6 +29,8 @@ class ComponentRegistry {
   }
 
   private registerComponents() {
+
+    //  Add simErrorBox to the component map
     const componentMap: Record<string, FC<any>> = {
       text: TextComponent,
       box: BoxComponent,
@@ -33,6 +39,7 @@ class ComponentRegistry {
       historyDiagram: HistoryDiagramComponent,
       numericDisplay: NumericDisplayComponent,
       gpsMap: GpsMapComponent,
+      simErrorBox: SimErrorBoxComponent   // ← REQUIRED
     };
 
     componentRegistryConfig.components.forEach((config) => {

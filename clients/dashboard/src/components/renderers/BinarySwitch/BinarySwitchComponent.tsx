@@ -5,41 +5,40 @@ import { resolveValue } from '../../utils/resolveValue';
 import type { ItemRendererProps } from '../../types';
 
 export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
-  item,
-  defaultStyle,
-  onItemClick,
-}) => {
-  // ID-keyed state for multiple instances
+                                                                     item,
+                                                                     defaultStyle,
+                                                                     onItemClick,
+                                                                   }) => {
   const [switchStates, setSwitchStates] = React.useState<Record<string, boolean>>({
     [item.id]: Boolean(item.isOn),
   });
 
   const isOn = switchStates[item.id] ?? Boolean(item.isOn);
 
-  // Resolve values using the standard pattern
+  // Resolve values
   const label = resolveValue(item.label, defaultStyle?.label, '');
   const onLabel = resolveValue(item.onLabel, defaultStyle?.onLabel, 'On');
   const offLabel = resolveValue(item.offLabel, defaultStyle?.offLabel, 'Off');
   const size = resolveValue(item.size, defaultStyle?.size, 'medium') as 'small' | 'medium';
-  const showBorder = resolveValue(item.showBorder, defaultStyle?.showBorder, true);
-  const borderColor = resolveValue(item.borderColor, defaultStyle?.borderColor, 'grey.400');
-  const onStatusColor = resolveValue(item.onStatusColor, defaultStyle?.onStatusColor, 'success.main');
-  const offStatusColor = resolveValue(item.offStatusColor, defaultStyle?.offStatusColor, 'text.secondary');
+
+  // Tactical colors
+  const onStatusColor = resolveValue(item.onStatusColor, defaultStyle?.onStatusColor, '#00ff9d');   // neon green
+  const offStatusColor = resolveValue(item.offStatusColor, defaultStyle?.offStatusColor, '#00bcd4'); // cyan
+  const borderColor = resolveValue(item.borderColor, defaultStyle?.borderColor, '#1f2a33');
+
   const gap = resolveValue(item.gap, defaultStyle?.gap, 2);
   const padding = resolveValue(item.padding, defaultStyle?.padding, 1.5);
+  const showBorder = resolveValue(item.showBorder, defaultStyle?.showBorder, true);
 
   const getStatusTextColor = (): string => (isOn ? onStatusColor : offStatusColor);
 
   const onToggleHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const nextValue = event.target.checked;
-    
-    // Update state for this specific instance
+
     setSwitchStates((prev) => ({
       ...prev,
       [item.id]: nextValue,
     }));
-
-    console.info('[BinarySwitchComponent] new state for id:', item.id, nextValue);
 
     if (onItemClick) {
       onItemClick(item.id, {
@@ -49,6 +48,7 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
     }
   };
 
+  // 🎖️ Tactical container styling
   const getContainerSx = (): SxProps<Theme> => ({
     display: 'flex',
     alignItems: 'center',
@@ -56,13 +56,14 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
     gap,
     px: 2,
     py: padding,
-    ...(showBorder && {
-      border: '1px solid',
-      borderColor: isOn ? onStatusColor : borderColor,
-    }),
-    borderRadius: 1,
-    transition: 'border-color 0.2s ease, background-color 0.2s ease',
+    backgroundColor: '#11181f',
+    borderRadius: 2,
+    border: showBorder ? `1px solid ${isOn ? onStatusColor : borderColor}` : 'none',
+    boxShadow: isOn ? '0 0 12px rgba(0,255,157,0.25)' : '0 0 6px rgba(0,188,212,0.15)',
+    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
     cursor: 'pointer',
+    width: 'fit-content',
+    maxWidth: '168px'
   });
 
   const getLabelSx = (): SxProps<Theme> => ({
@@ -71,32 +72,48 @@ export const BinarySwitchComponent: React.FC<ItemRendererProps> = ({
 
   const getTitleSx = (): SxProps<Theme> => ({
     fontWeight: 600,
+    color: '#00ff9d',
+    fontFamily: "'Share Tech Mono', monospace",
+    letterSpacing: 1,
+    textTransform: 'uppercase',
   });
 
   const getStatusTextSx = (): SxProps<Theme> => ({
     color: getStatusTextColor(),
     fontWeight: 600,
+    fontFamily: "'Share Tech Mono', monospace",
+    letterSpacing: 1,
     transition: 'color 0.2s ease',
+    ...(isOn && {
+      animation: 'pulse 1.8s infinite',
+    }),
   });
 
   return (
-    <Box sx={getContainerSx()}>
-      <Box sx={getLabelSx()}>
-        <Typography variant="subtitle2" sx={getTitleSx()}>
-          {label}
-        </Typography>
-        <Typography variant="body2" sx={getStatusTextSx()}>
-          {isOn ? onLabel : offLabel}
-        </Typography>
-      </Box>
+      <Box sx={getContainerSx()}>
+        <Box sx={getLabelSx()}>
+          <Typography variant="subtitle2" sx={getTitleSx()}>
+            {label}
+          </Typography>
+          <Typography variant="body2" sx={getStatusTextSx()}>
+            {isOn ? onLabel : offLabel}
+          </Typography>
+        </Box>
 
-      <Switch
-        checked={isOn}
-        onChange={onToggleHandler}
-        size={size}
-        color="success"
-      />
-    </Box>
+        <Switch
+            checked={isOn}
+            onChange={onToggleHandler}
+            size={size}
+            sx={{
+              '& .MuiSwitch-thumb': {
+                backgroundColor: isOn ? onStatusColor : offStatusColor,
+              },
+              '& .MuiSwitch-track': {
+                backgroundColor: '#1f2a33',
+              },
+            }}
+        />
+      </Box>
   );
 };
 
