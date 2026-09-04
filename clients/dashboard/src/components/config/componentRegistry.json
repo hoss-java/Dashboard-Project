@@ -41,6 +41,20 @@
       "description": "Displays numeric values with customizable formatting, colors, and styling",
       "path": "NumericDisplay",
       "fileName": "NumericDisplayComponent"
+    },
+    {
+      "type": "gpsMap",
+      "displayName": "GPS Map",
+      "description": "Displays live GPS path and current position",
+      "path": "GpsMap",
+      "fileName": "GpsMapComponent.tsx"
+    },
+    {
+      "type": "simErrorBox",
+      "displayName": "Simulated Error Box",
+      "description": "Displays simulated system errors with timestamps in tactical neon UI",
+      "path": "SimErrorBox",
+      "fileName": "SimErrorBoxComponent.tsx"
     }
   ]
 }

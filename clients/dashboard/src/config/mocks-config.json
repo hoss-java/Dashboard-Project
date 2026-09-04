@@ -76,6 +76,17 @@
         "type": "constant",
         "interval": 5000
       }
+    },
+    {
+      "name": "gpsTracker",
+      "id": "gps-sensor-1",
+      "initialValue": { "lat": 56.9000, "lng": 18.3000 },
+      "maxHistorySize": 200,
+      "simulator": {
+        "type": "custom",
+        "customFnKey": "simulateGpsMovement",
+        "interval": 2000
+      }
     }
   ]
 }

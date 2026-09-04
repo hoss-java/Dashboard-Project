@@ -45,6 +45,15 @@ const customFunctions: Record<string, (currentValue: any, timestamp: number, ela
     // Example: Fuel decays over time
     return Math.max(0, currentValue - (elapsedTime / 1000) * 0.05);
   },
+  simulateGpsMovement: (currentValue) => {
+    const speed = 0.0002; // tune this
+    const heading = Math.random() * Math.PI * 2; // random direction
+
+    const lat = currentValue.lat + Math.cos(heading) * speed;
+    const lng = currentValue.lng + Math.sin(heading) * speed;
+
+    return { lat, lng };
+  }
   // Add more custom functions as needed
 };
 
