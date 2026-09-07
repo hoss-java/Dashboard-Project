@@ -11,7 +11,9 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
                                                               onItemClick,
                                                             }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [historyData, setHistoryData] = useState<Array<{ timestamp: number; value: number }>>([]);
+  const [historyData, setHistoryData] = useState<
+      Array<{ timestamp: number; value: number }>
+  >([]);
 
   // Resolve config
   const dataName = resolveValue(item.content, defaultStyle?.content, '');
@@ -21,8 +23,21 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
   const minValue = resolveValue(item.minValue, defaultStyle?.minValue, undefined);
   const maxValue = resolveValue(item.maxValue, defaultStyle?.maxValue, undefined);
 
-  // Tactical neon cyan line
-  const lineColor = resolveValue(item.lineColor, defaultStyle?.lineColor, '#00bcd4');
+  // Detect type from label
+  const isTemperature = label.toLowerCase().includes('temp');
+  const isHumidity = label.toLowerCase().includes('humid');
+
+  // Tactical neon palette
+  const neonYellow = '#f5a623'; // temperature
+  const neonBlue = '#00bcd4';   // humidity
+  const neonWhite = '#ffffff';  // axes + fallback
+
+  // Auto-select line color
+  const lineColor = isTemperature
+      ? neonYellow
+      : isHumidity
+          ? neonBlue
+          : resolveValue(item.lineColor, defaultStyle?.lineColor, neonBlue);
 
   // Subscribe to data
   useEffect(() => {
@@ -56,7 +71,7 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
   }, [dataName]);
 
   /**
-   * Tactical HUD Chart Drawing
+   * Tactical HUD Chart Drawing (NO GLOW + WHITE AXES)
    */
   const drawChart = () => {
     const canvas = canvasRef.current;
@@ -68,7 +83,7 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     if (!historyData.length) {
       ctx.fillStyle = '#11181f';
       ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = '#00bcd4';
+      ctx.fillStyle = neonBlue;
       ctx.font = '14px Share Tech Mono';
       ctx.textAlign = 'center';
       ctx.fillText('NO TELEMETRY DATA', width / 2, height / 2);
@@ -109,27 +124,27 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
       ctx.stroke();
     }
 
-    // Axes
-    ctx.strokeStyle = '#00ff9d';
+    // Axes (WHITE instead of green)
+    ctx.strokeStyle = neonWhite;
     ctx.lineWidth = 2;
 
-    // Y-axis
+    // Y-axis (left)
     ctx.beginPath();
     ctx.moveTo(padding.left, padding.top);
     ctx.lineTo(padding.left, height - padding.bottom);
     ctx.stroke();
 
-    // X-axis
+// X-axis (bottom)
     ctx.beginPath();
     ctx.moveTo(padding.left, height - padding.bottom);
     ctx.lineTo(width - padding.right, height - padding.bottom);
     ctx.stroke();
 
-    // Tactical line
+    // Tactical line (NO GLOW)
     ctx.strokeStyle = lineColor;
     ctx.lineWidth = 3;
-    ctx.shadowColor = 'rgba(0,188,212,0.6)';
-    ctx.shadowBlur = 8;
+    ctx.shadowBlur = 0;
+    ctx.shadowColor = 'transparent';
 
     ctx.beginPath();
     let first = true;
@@ -137,6 +152,7 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
     for (const p of historyData) {
       const x = padding.left + ((p.timestamp - minTime) / timeRange) * drawableWidth;
       const y = height - padding.bottom - ((p.value - minVal) / valRange) * drawableHeight;
+
 
       if (first) {
         ctx.moveTo(x, y);
@@ -148,25 +164,30 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
 
     ctx.stroke();
 
-    // Tactical dots
-    ctx.fillStyle = '#00ff9d';
-    ctx.shadowBlur = 12;
+    // Tactical dots (NO GLOW)
+    ctx.fillStyle = lineColor;
+    ctx.shadowBlur = 0;
+    ctx.shadowColor = 'transparent';
 
     for (const p of historyData) {
-      const x = padding.left + ((p.timestamp - minTime) / timeRange) * drawableWidth;
-      const y = height - padding.bottom - ((p.value - minVal) / valRange) * drawableHeight;
+      const x =
+          padding.left +
+          ((p.timestamp - minTime) / timeRange) * drawableWidth;
+      const y =
+          height -
+          padding.bottom -
+          ((p.value - minVal) / valRange) * drawableHeight;
 
       ctx.beginPath();
       ctx.arc(x, y, 4, 0, Math.PI * 2);
       ctx.fill();
     }
 
-    // Tactical label
-    ctx.shadowBlur = 0;
-    ctx.fillStyle = '#00ff9d';
+    // Tactical label (NO GLOW)
+    ctx.fillStyle = lineColor;
     ctx.font = 'bold 18px Share Tech Mono';
     ctx.textAlign = 'center';
-    ctx.fillText(label.toUpperCase(), width / 2, padding.top - 15);
+    ctx.fillText(label.toUpperCase(), width / 2, padding.top);
   };
 
   useEffect(() => {
@@ -182,7 +203,7 @@ export const HistoryDiagram: React.FC<ItemRendererProps> = ({
           onClick={onItemClickHandler}
           sx={{
             display: 'flex',
-            flexDirection: 'column',
+            justifyContent: 'center',
             alignItems: 'center',
             padding: 2,
             backgroundColor: '#11181f',

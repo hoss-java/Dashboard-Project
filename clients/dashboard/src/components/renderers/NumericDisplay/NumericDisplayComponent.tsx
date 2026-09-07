@@ -39,10 +39,11 @@ export const NumericDisplayComponent: React.FC<ItemRendererProps> = ({
   const showBorder = resolveValue(item.showBorder, defaultStyle?.showBorder, true);
 
   // 🎖 Tactical colors
-  const neonGreen = '#00ff9d';
-  const neonCyan = '#00bcd4';
-  const matte = '#11181f';
-  const border = '#1f2a33';
+    const neonGreen = '#ffffff';
+    const neonCyan = '#00bcd4';
+    const neonYellow = '#f5a623';
+    const matte = '#2a3440';
+    const border = '#1f2a33';
 
   const valueColor = neonGreen;
   const labelColor = neonCyan;
@@ -240,119 +241,168 @@ export const NumericDisplayComponent: React.FC<ItemRendererProps> = ({
       </Box>
   );
 
-  /**
-   * TACTICAL GAUGE
-   */
-  const renderGauge = () => (
-      <Box
-          sx={{
-            position: 'relative',
-            width: gaugeSize,
-            height: gaugeSize,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-      >
-        <CircularProgress
-            variant="determinate"
-            value={getProgressPercent()}
-            size={gaugeSize}
-            thickness={gaugeThickness}
-            sx={{
-              color: neonGreen,
-              filter: 'drop-shadow(0 0 8px rgba(0,255,157,0.6))',
-            }}
-        />
+    /**
+     * TACTICAL GAUGE (Dynamic Color)
+     */
+    const getGaugeColor = (percent: number) => {
+        if (percent >= 50) return "#00ff9d";   // green
+        if (percent >= 30) return "#f5a623";    // yellow
+        if (percent >= 10) return "#ff0033";    // red
+        return "#ff0033";                       // below 10% stays red
+    };
 
-        <Typography
-            sx={{
-              position: 'absolute',
-              color: neonGreen,
-              fontFamily: "'Share Tech Mono', monospace",
-              textShadow: '0 0 8px rgba(0,255,157,0.6)',
-            }}
-        >
-          {formatValue(displayValue)}
-        </Typography>
-      </Box>
-  );
+    const renderGauge = () => {
+        const percent = getProgressPercent();
+        const gaugeColor = getGaugeColor(percent);
 
-  /**
-   * TACTICAL THERMOMETER
-   */
-  const renderThermometer = () => {
-    const fillPercent = getProgressPercent();
-
-    return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          {label && (
-              <Typography
-                  sx={{
-                    ...getLabelSx(),
-                    color: neonCyan,
-                  }}
-              >
-                {label}
-              </Typography>
-          )}
-
-          <Box sx={{ position: 'relative', mt: 2 }}>
-            {/* Tube */}
+        return (
             <Box
                 sx={{
-                  width: 32,
-                  height: thermometerHeight,
-                  border: `2px solid ${neonGreen}`,
-                  borderRadius: '0 0 18px 18px',
-                  backgroundColor: '#0a0f14',
-                  overflow: 'hidden',
-                  boxShadow: '0 0 12px rgba(0,255,157,0.25)',
+                    position: "relative",
+                    width: gaugeSize,
+                    height: gaugeSize,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}
             >
-              <Box
-                  sx={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: `${fillPercent}%`,
-                    backgroundColor: neonGreen,
-                    boxShadow: '0 0 14px rgba(0,255,157,0.6)',
-                    transition: animateChanges ? 'height 0.5s ease-in-out' : 'none',
-                  }}
-              />
+                <CircularProgress
+                    variant="determinate"
+                    value={percent}
+                    size={gaugeSize}
+                    thickness={gaugeThickness}
+                    sx={{
+                        color: gaugeColor,
+                        filter: "none",
+                        textShadow: "none",
+                    }}
+                />
+
+                <Typography
+                    sx={{
+                        position: "absolute",
+                        color: gaugeColor,
+                        fontFamily: "'Share Tech Mono', monospace",
+                        textShadow: "none",
+                    }}
+                >
+                    {formatValue(displayValue)}
+                </Typography>
             </Box>
+        );
+    };
 
-            {/* Bulb */}
-            <Box
-                sx={{
-                  position: 'absolute',
-                  bottom: -20,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: 44,
-                  height: 44,
-                  backgroundColor: neonGreen,
-                  borderRadius: '50%',
-                  boxShadow: '0 0 18px rgba(0,255,157,0.8)',
-                }}
-            />
-          </Box>
+    /**
+     * TACTICAL THERMOMETER (WHITE TEXT VERSION)
+     */
+    const renderThermometer = () => {
+        const fillPercent = getProgressPercent();
 
-          <Typography
-              sx={{
-                ...getValueSx(),
-                mt: 4,
-              }}
-          >
-            {formatValue(displayValue)}
-          </Typography>
-        </Box>
-    );
-  };
+        // Detect temperature
+        const isTemperature = label.toLowerCase().includes("temp");
 
-  /**
+        // Tactical neon palette
+        const neonGreen = "#ffffff";
+        const neonCyan = "#00bcd4";
+        const neonYellow = "#f5a623"; // temperature color
+        const whiteText = "#ffffff";
+
+        // Dynamic colors
+        const tubeColor = isTemperature ? neonYellow : neonGreen;
+        const fillColor = isTemperature ? neonYellow : neonGreen;
+        const bulbColor = isTemperature ? neonYellow : neonGreen;
+
+        const tubeGlow = isTemperature
+            ? "none"
+            : "none";
+
+        const fillGlow = isTemperature
+            ? "none"
+            : "none";
+
+        const bulbGlow = isTemperature
+            ? "0 0 18px rgba(245,166,35,0.8)"
+            : "0 0 18px rgba(0,255,157,0.8)";
+
+        return (
+            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+
+                {/* Label */}
+                {label && (
+                    <Typography
+                        sx={{
+                            ...getLabelSx(),
+                            color: isTemperature ? neonYellow : neonCyan,
+                        }}
+                    >
+                        {label}
+                    </Typography>
+                )}
+
+                {/* Thermometer */}
+                <Box sx={{ position: "relative", mt: 2 }}>
+
+                    {/* Tube */}
+                    <Box
+                        sx={{
+                            width: 32,
+                            height: thermometerHeight,
+                            border: `2px solid ${tubeColor}`,
+                            borderRadius: "0 0 18px 18px",
+                            backgroundColor: "#0a0f14",
+                            overflow: "hidden",
+                            boxShadow: tubeGlow,
+                        }}
+                    >
+                        {/* Fill */}
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                bottom: 0,
+                                left: 0,
+                                right: 0,
+                                height: `${fillPercent}%`,
+                                backgroundColor: fillColor,
+                                boxShadow: fillGlow,
+                                transition: animateChanges ? "height 0.5s ease-in-out" : "none",
+                            }}
+                        />
+                    </Box>
+
+                    {/* Bulb */}
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            bottom: -20,
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            width: 44,
+                            height: 44,
+                            backgroundColor: bulbColor,
+                            borderRadius: "50%",
+                            boxShadow: bulbGlow,
+                        }}
+                    />
+                </Box>
+
+                {/* Value (WHITE TEXT) */}
+                <Typography
+                    sx={{
+                        ...getValueSx(),
+                        color: whiteText,
+                        textShadow: "none",
+                        mt: 4,
+                    }}
+                >
+                    {formatValue(displayValue)}
+                </Typography>
+            </Box>
+        );
+    };
+
+
+
+    /**
    * TACTICAL TREND
    */
   const renderTrend = () => {

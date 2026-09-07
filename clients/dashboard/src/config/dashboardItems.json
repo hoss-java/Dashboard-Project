@@ -6,36 +6,77 @@
       "direction": "column",
       "wrap": "wrap",
       "width": "100%",
-      "align": "left",
+      "align": "center",
       "gap": 3,
       "padding": 2,
-
       "items": [
 
         {
-          "id": "gps-section",
+          "id": "gps-error-row",
           "type": "box",
+          "direction": "row",
+          "wrap": "wrap",
           "width": "100%",
-          "padding": 2,
           "gap": 2,
-          "direction": "column",
+          "padding": 2,
           "items": [
+
             {
-              "id": "gps-card",
-              "type": "card",
-              "title": "GPS Navigation",
-              "footer": "Live position & movement history",
+              "id": "gps-section",
+              "type": "box",
+              "width": "49%",
+              "direction": "column",
+              "gap": 2,
               "padding": 2,
-              "gap": 1,
-              "width": "100%",
               "items": [
                 {
-                  "id": "gps-map",
-                  "type": "gpsMap",
-                  "content": "gpsTracker",
-                  "label": "Boat Position",
+                  "id": "gps-card",
+                  "type": "card",
+                  "title": "GPS Navigation",
+                  "footer": "Live position & movement history",
+                  "padding": 2,
+                  "gap": 1,
                   "width": "100%",
-                  "height": 400
+                  "items": [
+                    {
+                      "id": "gps-map",
+                      "type": "gpsMap",
+                      "content": "gpsTracker",
+                      "label": "Boat Position",
+                      "width": "100%",
+                      "height": 400
+                    }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "error-section",
+              "type": "box",
+              "width": "49%",
+              "direction": "column",
+              "gap": 2,
+              "padding": 2,
+              "items": [
+                {
+                  "id": "error-card",
+                  "type": "card",
+                  "title": "System Error Log",
+                  "footer": "Simulated critical system warnings",
+                  "padding": 2,
+                  "gap": 1,
+                  "width": "100%",
+                  "minHeight": 400,
+                  "items": [
+                    {
+                      "id": "sim-error-box",
+                      "type": "simErrorBox",
+                      "label": "SYSTEM ERRORS",
+                      "width": "100%",
+                      "height": 432
+                    }
+                  ]
                 }
               ]
             }
@@ -46,13 +87,11 @@
           "id": "status-grid",
           "type": "box",
           "width": "100%",
-          "padding": 2,
-          "gap": 2,
           "direction": "row",
           "wrap": "wrap",
-
+          "gap": 2,
+          "padding": 2,
           "items": [
-
             {
               "id": "battery-card",
               "type": "card",
@@ -60,7 +99,8 @@
               "footer": "Updates every 2 seconds",
               "padding": 2,
               "gap": 1,
-              "width": "25%",
+              "width": "24%",
+              "minHeight": 200,
               "items": [
                 {
                   "id": "battery-display",
@@ -87,7 +127,8 @@
               "footer": "Updates every 2 seconds",
               "padding": 2,
               "gap": 1,
-              "width": "25%",
+              "width": "24%",
+              "minHeight": 200,
               "items": [
                 {
                   "id": "fuel-display",
@@ -113,7 +154,8 @@
               "footer": "Real-time state",
               "padding": 2,
               "gap": 1,
-              "width": "25%",
+              "width": "24%",
+              "minHeight": 200,
               "items": [
                 {
                   "id": "door-switch",
@@ -147,7 +189,8 @@
               "footer": "Status indicators",
               "padding": 2,
               "gap": 1,
-              "width": "25%",
+              "width": "24%",
+              "minHeight": 200,
               "items": [
                 {
                   "id": "engine-status",
@@ -180,11 +223,10 @@
           "id": "environment-grid",
           "type": "box",
           "width": "100%",
-          "padding": 2,
-          "gap": 2,
           "direction": "row",
           "wrap": "wrap",
-
+          "gap": 2,
+          "padding": 2,
           "items": [
             {
               "id": "temp-card",
@@ -193,7 +235,8 @@
               "footer": "Updates every 1 second",
               "padding": 2,
               "gap": 1,
-              "width": "33%",
+              "width": "49%",
+              "minHeight": 300,
               "items": [
                 {
                   "id": "temp-display",
@@ -230,7 +273,8 @@
               "footer": "Updates every 1 second",
               "padding": 2,
               "gap": 1,
-              "width": "33%",
+              "width": "49%",
+              "minHeight": 300,
               "items": [
                 {
                   "id": "humidity-display",
@@ -255,36 +299,6 @@
                   "minValue": 0,
                   "maxValue": 100,
                   "lineColor": "#4ECDC4"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "error-section",
-          "type": "box",
-          "width": "100%",
-          "padding": 2,
-          "gap": 2,
-          "direction": "column",
-
-          "items": [
-            {
-              "id": "error-card",
-              "type": "card",
-              "title": "System Error Log",
-              "footer": "Simulated critical system warnings",
-              "padding": 2,
-              "gap": 1,
-              "width": "100%",
-
-              "items": [
-                {
-                  "id": "sim-error-box",
-                  "type": "simErrorBox",
-                  "label": "SYSTEM ERRORS",
-                  "width": "100%",
-                  "height": 300
                 }
               ]
             }

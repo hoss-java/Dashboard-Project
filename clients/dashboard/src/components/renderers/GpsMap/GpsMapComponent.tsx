@@ -22,15 +22,19 @@ export const GpsMapComponent: React.FC<ItemRendererProps> = ({
         <Box
             onClick={onItemClickHandler}
             sx={{
+                width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: 2,
-                padding: 2,
+
+                // ⭐ Tactical theme colors
                 backgroundColor: '#11181f',
-                borderRadius: 1,
-                border: '1px solid #e0e0e0',
-                cursor: 'pointer',
+                borderRadius: 2,
+                border: '1px solid #1f2a33',
+                boxShadow: '0 0 20px rgba(0,255,157,0.05)',
+
+                padding: 2,
+                gap: 2,
             }}
         >
             <GpsMap
