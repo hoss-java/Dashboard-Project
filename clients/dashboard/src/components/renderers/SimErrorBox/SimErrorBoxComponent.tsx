@@ -61,7 +61,7 @@ export const SimErrorBoxComponent: React.FC<ItemRendererProps> = ({
         });
     };
 
-    // ⭐ FAILURE DESCRIPTION GENERATOR
+    //  FAILURE DESCRIPTION GENERATOR
     const getFailureDescription = (msg: string): string => {
         switch (msg) {
             case "ENGINE OVERHEATED":
