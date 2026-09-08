@@ -1,0 +1,213 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "type": "text",
+      "content": "Boat Dashboard",
+      "fontSize": 22,
+      "fontWeight": "bold",
+      "alignment": "center",
+      "padding": 1
+    },
+    {
+      "id": "2",
+      "type": "box",
+      "padding": 0,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "2.1",
+          "type": "card",
+          "title": "Temperature",
+          "footer": "Updates every 1 second",
+          "padding": 2,
+          "gap": 1.5,
+          "items": [
+            {
+              "id": "2.1.1",
+              "type": "numericDisplay",
+              "content": "temperature",
+              "label": "Temperature",
+              "variant": "thermometer",
+              "format": "standard",
+              "decimals": 1,
+              "suffix": "°C",
+              "minValue": 0,
+              "maxValue": 50,
+              "thermometerHeight": 80,
+              "gaugeColor": "warning",
+              "animateChanges": true
+            },
+            {
+              "id": "2.1.2",
+              "type": "historyDiagram",
+              "content": "temperature",
+              "label": "Temperature Over Time",
+              "height": 150,
+              "minValue": 0,
+              "maxValue": 50,
+              "lineColor": "#fbbf24"
+            }
+          ]
+        },
+        {
+          "id": "2.2",
+          "type": "card",
+          "title": "Humidity",
+          "footer": "Updates every 1 second",
+          "padding": 2,
+          "gap": 1.5,
+          "items": [
+            {
+              "id": "2.2.1",
+              "type": "numericDisplay",
+              "content": "humidity",
+              "label": "Humidity",
+              "variant": "bar",
+              "format": "percentage",
+              "decimals": 1,
+              "minValue": 0,
+              "maxValue": 100,
+              "barHeight": 10,
+              "barColor": "info",
+              "animateChanges": true
+            },
+            {
+              "id": "2.2.2",
+              "type": "historyDiagram",
+              "content": "humidity",
+              "label": "Humidity Over Time",
+              "height": 150,
+              "minValue": 0,
+              "maxValue": 100,
+              "lineColor": "#38bdf8"
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "type": "card",
+          "title": "Battery Level",
+          "footer": "Updates every 2 seconds",
+          "padding": 2,
+          "gap": 1.5,
+          "items": [
+            {
+              "id": "2.3.1",
+              "type": "numericDisplay",
+              "content": "batteryLevel",
+              "label": "Battery",
+              "variant": "gauge",
+              "format": "percentage",
+              "decimals": 0,
+              "minValue": 0,
+              "maxValue": 100,
+              "gaugeSize": 100,
+              "gaugeThickness": 8,
+              "gaugeColor": "success",
+              "animateChanges": true
+            }
+          ]
+        },
+        {
+          "id": "2.4",
+          "type": "card",
+          "title": "Fuel Level",
+          "footer": "Updates every 2 seconds",
+          "padding": 2,
+          "gap": 1.5,
+          "items": [
+            {
+              "id": "2.4.1",
+              "type": "numericDisplay",
+              "content": "fuelLevel",
+              "label": "Fuel",
+              "variant": "bar",
+              "format": "percentage",
+              "decimals": 0,
+              "minValue": 0,
+              "maxValue": 100,
+              "barHeight": 10,
+              "barColor": "error",
+              "animateChanges": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "box",
+      "padding": 0,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "3.1",
+          "type": "card",
+          "title": "Door Status",
+          "footer": "Real-time state",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "3.1.1",
+              "type": "binarySwitch",
+              "content": "doorStatus",
+              "label": "Cabin Door",
+              "onLabel": "Open",
+              "offLabel": "Closed",
+              "size": "medium",
+              "onStatusColor": "error.main",
+              "offStatusColor": "success.main"
+            },
+            {
+              "id": "3.1.2",
+              "type": "binarySwitch",
+              "content": "engineHatchStatus",
+              "label": "Engine Hatch",
+              "onLabel": "Open",
+              "offLabel": "Closed",
+              "size": "medium",
+              "onStatusColor": "error.main",
+              "offStatusColor": "success.main"
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "type": "card",
+          "title": "System Status",
+          "footer": "Status indicators",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "3.2.1",
+              "type": "binarySwitch",
+              "content": "engineStatus",
+              "label": "Engine Running",
+              "onLabel": "Running",
+              "offLabel": "Stopped",
+              "size": "medium",
+              "onStatusColor": "success.main",
+              "offStatusColor": "text.secondary"
+            },
+            {
+              "id": "3.2.2",
+              "type": "binarySwitch",
+              "content": "anchorStatus",
+              "label": "Anchor Deployed",
+              "onLabel": "Deployed",
+              "offLabel": "Stowed",
+              "size": "medium",
+              "onStatusColor": "info.main",
+              "offStatusColor": "text.secondary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "autoStart": true,
+  "mocks": [
+    {
+      "name": "temperature",
+      "id": "temp-sensor-1",
+      "initialValue": 22,
+      "maxHistorySize": 100,
+      "simulator": {
+        "type": "sine",
+        "amplitude": 3,
+        "frequency": 0.01,
+        "interval": 5000
+      }
+    },
+    {
+      "name": "humidity",
+      "id": "humidity-sensor-1",
+      "initialValue": 65,
+      "maxHistorySize": 100,
+      "simulator": {
+        "type": "sine",
+        "amplitude": 8,
+        "frequency": 0.008,
+        "interval": 6000
+      }
+    },
+    {
+      "name": "batteryLevel",
+      "id": "battery-monitor-1",
+      "initialValue": 85,
+      "maxHistorySize": 100,
+      "simulator": {
+        "type": "custom",
+        "customFnKey": "decayBattery",
+        "interval": 3000
+      }
+    },
+    {
+      "name": "fuelLevel",
+      "id": "fuel-gauge-1",
+      "initialValue": 92,
+      "maxHistorySize": 100,
+      "simulator": {
+        "type": "custom",
+        "customFnKey": "decayFuel",
+        "interval": 4000
+      }
+    },
+    {
+      "name": "doorStatus",
+      "id": "door-sensor-1",
+      "initialValue": false,
+      "maxHistorySize": 50,
+      "simulator": {
+        "type": "constant",
+        "interval": 5000
+      }
+    },
+    {
+      "name": "engineStatus",
+      "id": "engine-monitor-1",
+      "initialValue": true,
+      "maxHistorySize": 50,
+      "simulator": {
+        "type": "constant",
+        "interval": 5000
+      }
+    },
+    {
+      "name": "anchorStatus",
+      "id": "anchor-sensor-1",
+      "initialValue": false,
+      "maxHistorySize": 50,
+      "simulator": {
+        "type": "constant",
+        "interval": 5000
+      }
+    }
+  ]
+}

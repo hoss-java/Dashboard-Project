@@ -1,0 +1,107 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "type": "text",
+      "content": "Live Dashboard",
+      "fontSize": "large",
+      "fontWeight": "bold",
+      "align": "center",
+      "padding": 2
+    },
+    {
+      "id": "2",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "2.1",
+          "type": "card",
+          "title": "Temperature Sensor",
+          "footer": "Updates every 1 second",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.1.1",
+              "type": "text",
+              "content": "temperature",
+              "fontSize": "x-large",
+              "fontWeight": "bold"
+            },
+            {
+              "id": "2.1.2",
+              "type": "text",
+              "content": "Current temperature value (°C)",
+              "fontSize": "small"
+            },
+            {
+              "id": "2.1.2",
+              "type": "historyDiagram",
+              "content": "temperature",
+              "label": "Temperature Over Time",
+              "width": 600,
+              "height": 400,
+              "lineColor": "#FF6B6B"
+            }
+          ]
+        },
+        {
+          "id": "2.2",
+          "type": "card",
+          "title": "Counter",
+          "footer": "Increments every 500ms",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.2.1",
+              "type": "text",
+              "content": "counter",
+              "fontSize": "x-large",
+              "fontWeight": "bold"
+            },
+            {
+              "id": "2.2.2",
+              "type": "text",
+              "content": "Incremental counter value",
+              "fontSize": "small"
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "type": "card",
+          "title": "Static Card",
+          "footer": "For reference",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.3.1",
+              "type": "text",
+              "content": "This card doesn't use data registry",
+              "fontSize": "medium"
+            },
+            {
+              "id": "2.3.2",
+              "type": "text",
+              "content": "It shows static content",
+              "fontSize": "small"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "text",
+      "content": "Real-time data from mocks",
+      "fontSize": "small",
+      "padding": 2,
+      "align": "center"
+    }
+  ]
+}

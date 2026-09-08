@@ -1,0 +1,180 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "type": "text",
+      "content": "Water Control System",
+      "fontSize": "large",
+      "fontWeight": "bold",
+      "align": "center",
+      "padding": 2
+    },
+    {
+      "id": "2",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "2.1",
+          "type": "card",
+          "title": "Water Temperature",
+          "footer": "Updates every 5 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.1.1",
+              "type": "numericDisplay",
+              "content": "waterTemp",
+              "label": "Temperature",
+              "variant": "thermometer",
+              "format": "standard",
+              "decimals": 1,
+              "suffix": "°C",
+              "minValue": 5,
+              "maxValue": 40,
+              "thermometerHeight": 120,
+              "gaugeColor": "info",
+              "animateChanges": true
+            }
+          ]
+        },
+        {
+          "id": "2.2",
+          "type": "card",
+          "title": "Tank Level",
+          "footer": "Updates every 4 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.2.1",
+              "type": "numericDisplay",
+              "content": "tankLevel",
+              "label": "Water Level",
+              "variant": "bar",
+              "format": "percentage",
+              "decimals": 0,
+              "minValue": 0,
+              "maxValue": 100,
+              "barHeight": 20,
+              "barColor": "info",
+              "animateChanges": true
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "type": "card",
+          "title": "Pressure",
+          "footer": "Updates every 3 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.3.1",
+              "type": "numericDisplay",
+              "content": "waterPressure",
+              "label": "Pressure",
+              "variant": "gauge",
+              "format": "standard",
+              "decimals": 1,
+              "suffix": "bar",
+              "minValue": 0,
+              "maxValue": 10,
+              "gaugeSize": 140,
+              "gaugeThickness": 10,
+              "gaugeColor": "success",
+              "animateChanges": true
+            }
+          ]
+        },
+        {
+          "id": "2.4",
+          "type": "card",
+          "title": "pH Level",
+          "footer": "Updates every 6 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.4.1",
+              "type": "numericDisplay",
+              "content": "phLevel",
+              "label": "pH",
+              "variant": "text",
+              "format": "standard",
+              "decimals": 2,
+              "minValue": 0,
+              "maxValue": 14,
+              "animateChanges": true
+            },
+            {
+              "id": "2.4.2",
+              "type": "historyDiagram",
+              "content": "phLevel",
+              "label": "pH Over Time",
+              "width": 600,
+              "height": 300,
+              "minValue": 0,
+              "maxValue": 14,
+              "lineColor": "#95E1D3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "3.1",
+          "type": "card",
+          "title": "Pump Status",
+          "footer": "Real-time control",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "3.1.1",
+              "type": "binarySwitch",
+              "content": "pumpRunning",
+              "label": "Main Pump",
+              "onLabel": "Running",
+              "offLabel": "Stopped",
+              "size": "medium",
+              "onStatusColor": "success.main",
+              "offStatusColor": "text.secondary"
+            },
+            {
+              "id": "3.1.2",
+              "type": "binarySwitch",
+              "content": "filterRunning",
+              "label": "Filter System",
+              "onLabel": "Active",
+              "offLabel": "Inactive",
+              "size": "medium",
+              "onStatusColor": "success.main",
+              "offStatusColor": "text.secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "type": "text",
+      "content": "Water system monitoring — Critical parameters tracked in real-time",
+      "fontSize": "small",
+      "padding": 2,
+      "align": "center",
+      "color": "text.secondary"
+    }
+  ]
+}

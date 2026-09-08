@@ -1,0 +1,9 @@
+{
+  "align": "left",
+  "padding": 1,
+  "gap": 1,
+  "showBorder": false,
+  "borderColor": "#ccc",
+  "fontSize": "medium",
+  "fontWeight": "normal"
+}

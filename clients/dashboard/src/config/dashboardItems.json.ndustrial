@@ -1,0 +1,212 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "type": "text",
+      "content": "Industrial Control Panel",
+      "fontSize": "large",
+      "fontWeight": "bold",
+      "align": "center",
+      "padding": 2
+    },
+    {
+      "id": "2",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "2.1",
+          "type": "card",
+          "title": "Chamber Temperature",
+          "footer": "Updates every 2 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.1.1",
+              "type": "numericDisplay",
+              "content": "chamberTemp",
+              "label": "Temperature",
+              "variant": "thermometer",
+              "format": "standard",
+              "decimals": 1,
+              "suffix": "°C",
+              "minValue": -20,
+              "maxValue": 100,
+              "thermometerHeight": 120,
+              "gaugeColor": "error",
+              "animateChanges": true
+            }
+          ]
+        },
+        {
+          "id": "2.2",
+          "type": "card",
+          "title": "Humidity Control",
+          "footer": "Updates every 3 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.2.1",
+              "type": "numericDisplay",
+              "content": "humidity",
+              "label": "Humidity",
+              "variant": "bar",
+              "format": "percentage",
+              "decimals": 1,
+              "minValue": 0,
+              "maxValue": 100,
+              "barHeight": 16,
+              "barColor": "primary",
+              "animateChanges": true
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "type": "card",
+          "title": "System Pressure",
+          "footer": "Updates every 2 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.3.1",
+              "type": "numericDisplay",
+              "content": "sysPressure",
+              "label": "Pressure",
+              "variant": "gauge",
+              "format": "standard",
+              "decimals": 2,
+              "suffix": "MPa",
+              "minValue": 0,
+              "maxValue": 25,
+              "gaugeSize": 140,
+              "gaugeThickness": 10,
+              "gaugeColor": "warning",
+              "animateChanges": true
+            }
+          ]
+        },
+        {
+          "id": "2.4",
+          "type": "card",
+          "title": "Production Rate",
+          "footer": "Updates every 5 seconds",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "2.4.1",
+              "type": "numericDisplay",
+              "content": "prodRate",
+              "label": "Units/Hour",
+              "variant": "text",
+              "format": "standard",
+              "decimals": 0,
+              "minValue": 0,
+              "maxValue": 500,
+              "animateChanges": true
+            },
+            {
+              "id": "2.4.2",
+              "type": "historyDiagram",
+              "content": "prodRate",
+              "label": "Production Over Time",
+              "width": 600,
+              "height": 300,
+              "minValue": 0,
+              "maxValue": 500,
+              "lineColor": "#2E7D32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "box",
+      "padding": 2,
+      "gap": 2,
+      "align": "center",
+      "items": [
+        {
+          "id": "3.1",
+          "type": "card",
+          "title": "Equipment Status",
+          "footer": "Operational state",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "3.1.1",
+              "type": "binarySwitch",
+              "content": "mainMotor",
+              "label": "Main Motor",
+              "onLabel": "Running",
+              "offLabel": "Stopped",
+              "size": "medium",
+              "onStatusColor": "success.main",
+              "offStatusColor": "text.secondary"
+            },
+            {
+              "id": "3.1.2",
+              "type": "binarySwitch",
+              "content": "coolingSystem",
+              "label": "Cooling System",
+              "onLabel": "Active",
+              "offLabel": "Inactive",
+              "size": "medium",
+              "onStatusColor": "success.main",
+              "offStatusColor": "text.secondary"
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "type": "card",
+          "title": "Safety Systems",
+          "footer": "Protection status",
+          "padding": 2,
+          "gap": 1,
+          "items": [
+            {
+              "id": "3.2.1",
+              "type": "binarySwitch",
+              "content": "emergencyStop",
+              "label": "Emergency Stop",
+              "onLabel": "Engaged",
+              "offLabel": "Ready",
+              "size": "medium",
+              "onStatusColor": "error.main",
+              "offStatusColor": "success.main"
+            },
+            {
+              "id": "3.2.2",
+              "type": "binarySwitch",
+              "content": "safetyGuard",
+              "label": "Safety Guard",
+              "onLabel": "Closed",
+              "offLabel": "Open",
+              "size": "medium",
+              "onStatusColor": "success.main",
+              "offStatusColor": "error.main"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "type": "text",
+      "content": "Industrial operations — Critical performance and safety indicators monitored continuously",
+      "fontSize": "small",
+      "padding": 2,
+      "align": "center",
+      "color": "text.secondary"
+    }
+  ]
+}

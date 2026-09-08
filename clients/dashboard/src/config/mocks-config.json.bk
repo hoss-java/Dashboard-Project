@@ -1,0 +1,30 @@
+{
+  "autoStart": true,
+  "mocks": [
+    {
+      "name": "temperature",
+      "id": "temp-sensor-1",
+      "initialValue": 20,
+      "maxHistorySize": 50,
+      "simulator": {
+        "type": "sine",
+        "amplitude": 5,
+        "frequency": 0.05,
+        "interval": 1000,
+        "loop": true
+      }
+    },
+    {
+      "name": "counter",
+      "id": "counter-1",
+      "initialValue": 0,
+      "maxHistorySize": 100,
+      "simulator": {
+        "type": "incremental",
+        "step": 1,
+        "interval": 500,
+        "loop": true
+      }
+    }
+  ]
+}
