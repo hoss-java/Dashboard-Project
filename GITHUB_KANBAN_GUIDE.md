@@ -92,4 +92,3 @@ Drag the card between columns or click it and change status.
 - **Update status** as you work (keeps team in sync)
 - **Add comments** on the card if you need help
 - **Ask in the card** instead of Slack — keeps history
-

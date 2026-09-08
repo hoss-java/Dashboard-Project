@@ -13,7 +13,7 @@
 
 # Card link pattern
 deckLinkFlag=true
-__githubOwner="$(git remote get-url origin | sed -n 's%.*[:/]\([^/]\+\)/.*\.git%\1%p')"
+__githubOwner="$(git remote get-url origin | sed -n 's%.*[:/]\([^/\]\+\)/.*\.git%\1%p')"
 __gitRepo="$(git rev-parse --show-toplevel)"
 deckLinkAddr="https://github.com/$__githubOwner/$__gitRepo/blob/main/DECK.md#%BOARDID%-%CARDID%"
 
